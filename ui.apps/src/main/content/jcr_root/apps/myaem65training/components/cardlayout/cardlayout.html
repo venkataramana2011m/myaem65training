@@ -1,0 +1,32 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='clientlib-cardlayout'}"/>
+<h2>This is your AEM HTML Template Language component with a Multifield</h2>
+<div class="card-body"
+    data-sly-use.multiItems="com.myaem65training.core.models.CardLayoutModel">
+    <section  class="card-list" data-sly-list.head="${multiItems.cards.listChildren}">
+		<article class="card">
+			<header class="card-header">
+				<p>${'yyyy-MM-dd HH:mm:ss.SSSXXX' @ format= head.cardCreatedOn, timezone='UTC'}</p>
+				<a href="${head.cardLink}.html" target="_blank"><h2>${head.cardTitle}</h2></a>
+			</header>
+            ${head.cardDesc}
+			<div class="card-author">
+				<a class="author-avatar" href="#">
+				  <img src="${head.fileReference}" />
+				</a>
+				<svg class="half-circle" viewBox="0 0 106 57">
+				  <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+				</svg>
+	  
+				<div class="author-name">
+				  <div class="author-name-prefix">Author</div>
+				  ${head.cardAuthorName}
+				</div>
+			  </div>
+			  <div class="tags">
+				<a href="#">html</a>
+				<a href="#">css</a>
+				<a href="#">web-dev</a>
+			  </div>
+		</article>
+   </section>
+</div>

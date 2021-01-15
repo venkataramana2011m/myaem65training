@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Created-By: Apache Jackrabbit FileVault - Package Maven Plugin 1.1.4
+Build-Jdk-Spec: 14
+Implementation-Title: My AEM 65 Training - Repository Structure Package
+Implementation-Version: 1.0.0-SNAPSHOT
+Content-Package-Type: application
+Content-Package-Id: com.myaem65training:myaem65training.ui.apps.structur
+ e:1.0.0-SNAPSHOT
+Content-Package-Description: Empty package that defines the structure of
+  the Adobe Experience Manager repository the Code packages in this proj
+ ect deploy into.
+         Any roots in the Code packages of this projec
+ t should have their parent enumerated in the Filters list below.
+Content-Package-Roots: /apps,/apps/cq,/apps/dam,/apps/msm,/apps/myaem65t
+ raining,/apps/settings,/apps/sling,/apps/wcm
+

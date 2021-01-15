@@ -1,0 +1,19 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='clientlib-userlisting'}"/>
+
+<h1>Users/Groups in the AEM JCR are : </h1>
+<p>This is your AEM HTML Template Language component using WCMUsePojo</p>
+<div class="userlist-body" data-sly-use.object="com.myaem65training.core.cqcomponents.UserComponent">
+   <section class="user-list" >
+		<article class="user" data-sly-repeat="${object.groups}">            
+			<header class="user-header">
+                <p>May 18th 2020</p>
+                <img src="/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg" />
+            </header>
+            <div class="user-details">
+				<h2>${item}</h2>
+                <p>testungsljkgnsfkjghdfkjsgndfgk sdqrlasjhdfljkhsdf sadjfbgljhsafdbfsd</p>
+            </div>
+		</article>
+	</section>    
+</div>
+
