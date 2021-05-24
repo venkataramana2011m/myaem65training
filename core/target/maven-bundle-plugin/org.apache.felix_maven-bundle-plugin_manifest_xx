@@ -1,9 +1,0 @@
-Import-Package=javax.inject;version=0.0.0,
-							javax.annotation;version=0.0.0,
-							*
-Sling-Model-Packages=fragmentexamples.core
-_dsannotations=*
-_metatypeannotations=*
-_plugin=org.apache.sling.bnd.models.ModelsScannerPlugin,
-							
-							org.apache.felix.scrplugin.bnd.SCRDescriptorBndPlugin;destdir=C:\Users\mankumar45\Documents\Pavan\My_Projects\RND_AEM\myaem65training\core\target\classes

@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.myaem65training.core.service.DomainConfigService;
+import com.myaem65training.core.service.RestAPIConfigService;
 
 @Model(adaptables = Resource.class)
 public class ReadOSGIConfigModel {
@@ -23,6 +24,9 @@ public class ReadOSGIConfigModel {
 	    @Inject 
 	    DomainConfigService ms; 
 	    
+	    @Inject 
+		RestAPIConfigService rfapics; 
+	    
 	    private String message;
 	    
 	    @PostConstruct
@@ -34,6 +38,10 @@ public class ReadOSGIConfigModel {
 	        message = "\tHello World!\n";
 	        message += "\tResource type is: " + resourceType + "\n";
 	        message += "\tVALUE IS " + ms.getDomainPathConfig() + "\n";
+	        message +="\tHost Name is :: " + rfapics.getRestfulAPIHostConfig() + "\n";
+	        message +="\t Path Name is :: " + rfapics.getRestfulAPIPathConfig() + "\n";
+	        message +="\tKey is :: " + rfapics.getRestfulAPIKeyConfig() + "\n";
+	        
 	    }
 	 
 	    public String getMessage() {

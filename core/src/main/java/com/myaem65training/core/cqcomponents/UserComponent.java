@@ -1,5 +1,6 @@
 package com.myaem65training.core.cqcomponents;
 
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class UserComponent extends WCMUsePojo {
 	 */
 	private static final Logger log = LoggerFactory.getLogger(UserComponent.class);
 
-	private List<String> users, groups;
+	private List<String> users, groups, userLastModified, groupsLastModified;
 
 	private Session session;
 
@@ -49,7 +50,9 @@ public class UserComponent extends WCMUsePojo {
 
 			users = new LinkedList<>();
 			groups = new LinkedList<>();
-
+			userLastModified = new LinkedList<>();
+			groupsLastModified = new LinkedList<>();
+			
 			while (userIterator.hasNext()) {
 
 				log.info("Getting user");

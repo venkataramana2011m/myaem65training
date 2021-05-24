@@ -1,0 +1,20 @@
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='clientlib-damlisting'}"/>
+
+<div data-sly-test.editor="${wcmmode.edit || wcmmode.design}">
+    <h2> <b>This is my Gallery Component !!!! ........</b> </h2>
+</div>
+<script>
+        function fnshowImg(trgtsrc){
+         document.getElementById("preview").src = trgtsrc;
+        }		
+</script>
+<sly data-sly-use.object="com.myaem65training.core.cqcomponents.FetchDamListingComponent"/>
+<center>
+                            <div id="divpreview" style="width:500px; height:500px; border:1px solid #A7D7F9; position:relative; border-radius:6px;box-shadow: 5px 5px 5px gray;">
+                                    <img id="preview" src="" style="width:500px; height:500px; border:1px solid #A7D7F9; border-radius:6px;box-shadow: 5px 5px 5px gray;" />
+                            </div>
+       					</center>
+<div class="user-container" style="top:400px; overflow-y:auto; overflow-x: auto; height:300px;">
+		<img data-sly-repeat="${object.damAssets}" class="user-item" src="${item}" onclick="fnshowImg(this.src);">
+ </div>

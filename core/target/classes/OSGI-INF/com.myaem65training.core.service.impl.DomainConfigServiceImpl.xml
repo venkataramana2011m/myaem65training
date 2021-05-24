@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="com.myaem65training.core.service.impl.DomainConfigServiceImpl" immediate="true" activate="activate" modified="activate">
-  <service>
-    <provide interface="com.myaem65training.core.service.DomainConfigService"/>
-  </service>
-  <implementation class="com.myaem65training.core.service.impl.DomainConfigServiceImpl"/>
-</scr:component>

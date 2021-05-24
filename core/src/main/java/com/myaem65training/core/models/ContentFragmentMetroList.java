@@ -1,10 +1,6 @@
 package com.myaem65training.core.models;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -17,7 +13,6 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 
 import com.adobe.cq.dam.cfm.ContentElement;
 import com.adobe.cq.dam.cfm.ContentFragment;
-import com.adobe.cq.dam.cfm.FragmentData;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ContentFragmentMetroList {

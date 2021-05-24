@@ -111,6 +111,11 @@
     
 }
 
+.user-details a {
+  color: royalblue;
+  text-decoration: none;
+}
+
 .user-details p {
     font-size: 14px;
     margin: 0 0 1rem;

@@ -22,5 +22,13 @@
     <div class="cmp-helloworld__item" data-sly-use.model="com.myaem65training.core.models.HelloWorldModel" data-sly-test="${model.message}">
         <p class="cmp-helloworld__item-label">Model message:</p>
         <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
+        <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.linkURL}</pre>
+    </div>
+	<div class="cmp-helloworld__item" data-sly-use.model="com.myaem65training.core.models.FetchCountriesListModel" data-sly-test="${countryModel.message}">
+ <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="countryModel">${countryModel.message}</pre>
+    </div>
+     <div class="cmp-helloworld__item" data-sly-use.model="com.myaem65training.core.models.ReadOSGIConfigModel" data-sly-test="${model.message}">
+        <p class="cmp-helloworld__item-label">Model message:</p>
+        <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
     </div>
 </div>

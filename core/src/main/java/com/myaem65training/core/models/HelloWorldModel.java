@@ -17,6 +17,8 @@ package com.myaem65training.core.models;
 
 import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
 
+import java.util.Optional;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,64 +26,76 @@ import javax.inject.Named;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Exporter;
+import org.apache.sling.models.annotations.ExporterOption;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.settings.SlingSettingsService;
+import com.adobe.cq.export.json.ComponentExporter;
 
-import com.adobe.xfa.ut.StringUtils;
+import com.adobe.cq.export.json.ExporterConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.myaem65training.core.service.DomainConfigService;
 
-import java.util.Optional;
+@Model(adaptables = Resource.class, resourceType = {
+		com.myaem65training.core.models.HelloWorldModel.RESOURCE_TYPE }, adapters = {
+				com.myaem65training.core.models.HelloWorldModel.class,
+				ComponentExporter.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION, options = {
+		@ExporterOption(name = "SerializationFeature.WRITE_DATES_AS_TIMESTAMPS", value = "true") })
+public class HelloWorldModel implements ComponentExporter {
 
-@Model(adaptables = Resource.class)
-public class HelloWorldModel {
+	protected static final String RESOURCE_TYPE = "myaem65training/components/helloworld";
 
-    @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
-    @Default(values="No resourceType")
-    protected String resourceType;
-    
-    @Inject 
-    DomainConfigService ms; 
-    
-    @OSGiService
-    private SlingSettingsService settings;
-    @SlingObject
-    private Resource currentResource;
-    @SlingObject
-    private ResourceResolver resourceResolver;
+	@ValueMapValue(name = PROPERTY_RESOURCE_TYPE, injectionStrategy = InjectionStrategy.OPTIONAL)
+	@Default(values = "No resourceType")
+	protected String resourceType;
 
-    private String message;
-    @Inject 
-    @Named("linkURL")
-    private String linkURL;
+	@Inject
+	DomainConfigService ms;
 
-    @PostConstruct
-    protected void init() {
-        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        String currentPagePath = Optional.ofNullable(pageManager)
-                .map(pm -> pm.getContainingPage(currentResource))
-                .map(Page::getPath).orElse("");
+	@OSGiService
+	private SlingSettingsService settings;
+	@SlingObject
+	private Resource currentResource;
+	@SlingObject
+	private ResourceResolver resourceResolver;
 
-        message = "Hello World!\n"
-            + "Resource type is: " + resourceType + "\n"
-            + "Current page is:  " + currentPagePath + "\n"
-            + "This is instance: " + settings.getSlingId() + "\n";
-    }
+	private String message;
+	@Inject
+	@Named("linkURL")
+	private String linkURL;
 
-    public String getMessage() {
-        return message;
-    }
-    
-    public String getLinkURL() {
-    	String tmpLinkURL = linkURL;
-    	linkURL=null;
-    	
-    	return linkURL = tmpLinkURL.startsWith("http") ? tmpLinkURL :  ms.getDomainPathConfig() + tmpLinkURL;
-    }
+	@PostConstruct
+	protected void init() {
+		PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+		String currentPagePath = Optional.ofNullable(pageManager).map(pm -> pm.getContainingPage(currentResource))
+				.map(Page::getPath).orElse("");
+
+		message = "Hello World!\n" + "Resource type is: " + resourceType + "\n" + "Current page is:  " + currentPagePath
+				+ "\n" + "This is instance: " + settings.getSlingId() + "\n";
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public String getLinkURL() {
+		String tmpLinkURL = linkURL;
+		linkURL = null;
+
+		return linkURL = tmpLinkURL.startsWith("http") ? tmpLinkURL : ms.getDomainPathConfig() + tmpLinkURL;
+	}
+
+	@Override
+	public String getExportedType() {
+		// TODO Auto-generated method stub
+		return RESOURCE_TYPE;
+	}
 
 }
