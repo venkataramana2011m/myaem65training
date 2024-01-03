@@ -29,7 +29,7 @@ public class RestAPIConfigServiceImpl implements RestAPIConfigService{
 	
 	@Override
 	public String getRestfulAPIPathConfig() {
-		System.out.println(PropertiesUtil.toString(restAPIConfig.restfulAPIPathConfig(),"https://ajayakv-rest-countries-v1.p.rapidapi.com/rest/v1/all"));
+		System.out.println(PropertiesUtil.toString(restAPIConfig.restfulAPIPathConfig(),null));
 		return restAPIConfig.restfulAPIPathConfig();
 		
 	}
@@ -37,14 +37,14 @@ public class RestAPIConfigServiceImpl implements RestAPIConfigService{
 	@Override
 	public String getRestfulAPIKeyConfig() {
 		// TODO Auto-generated method stub
-		System.out.println(PropertiesUtil.toString(restAPIConfig.restfulAPIKeyConfig(),"ae3cfa22c9mshf958db3037d74a5p11580fjsn863b861ab2e7"));
+		System.out.println(PropertiesUtil.toString(restAPIConfig.restfulAPIKeyConfig(),null));
 		return restAPIConfig.restfulAPIKeyConfig();
 	}
 
 	@Override
 	public String getRestfulAPIHostConfig() {
 		// TODO Auto-generated method stub
-		System.out.println(PropertiesUtil.toString(restAPIConfig.restfulAPIHostConfig(),"ajayakv-rest-countries-v1.p.rapidapi.com"));
+		System.out.println(PropertiesUtil.toString(restAPIConfig.restfulAPIHostConfig(),null));
 		return restAPIConfig.restfulAPIHostConfig();
 	}
 

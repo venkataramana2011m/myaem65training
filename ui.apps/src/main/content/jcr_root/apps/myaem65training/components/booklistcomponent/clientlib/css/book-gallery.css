@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: arial;
+}
+
+.main {
+
+    margin: 2%;
+}
+
+.card {
+    width: 20%;
+    display: inline-block;
+    box-shadow: 2px 2px 20px black;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.image img {
+    width: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.title {
+    text-align: center;
+    padding: 10px;
+
+}
+
+h1 {
+    font-size: 20px;
+}
+
+.des {
+    padding: 3px;
+    text-align: center;
+    padding-top: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+button {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.my-divcontainer {
+
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 20px black;
+    display: flex;
+    
+}
+
+.fixed {
+    color: #fff;
+    background-color: #4F628E;
+    box-shadow: 2px 2px 20px black;
+    width: 300px;
+    height:100%;
+}
+
+.filterheading {
+    background-color: #C0C0C0;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    color: #000;
+}
+
+.categories {
+    background-color: #4F628E;
+    width: 100%;
+    overflow-y: scroll;
+    white-space: nowrap;
+    height: 30%;
+}
+
+.flex-item {
+    color: #000;
+    background-color: #ffffff;
+    flex-grow: 1;
+}
+
+
+
+/* Sets the width for the accordion. Sets the margin to 90px on the top and bottom and auto to the left and right */
+
+.accordion {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* accordion heading */
+.accordion h1 {
+    color:#000;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background-color: gainsboro;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: 1px solid #4F628E;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.accordion h1:hover {
+    cursor: pointer;
+}
+
+/* accordion section content */
+.accordion div {
+    display: none;
+    padding: 10px;
+    height: 200px;
+    line-height: 20px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    overflow-y:scroll;
+    white-space: nowrap;
+}
+
+@media screen and (max-width:480px) {
+    .accordion {
+        width: 100%;
+        margin: 0;
+    }
+}

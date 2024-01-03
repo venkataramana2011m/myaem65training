@@ -93,6 +93,7 @@ Import-Package: javax.annotation;version=0.0.0,*
 						</configuration>
 					</execution>
 				</executions>
+
 				<configuration>
 					<exportScr>true</exportScr>
 					<instructions>
@@ -134,10 +135,11 @@ Import-Package: javax.annotation;version=0.0.0,*
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>8</source>
+					<target>8</target>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 
@@ -291,5 +293,16 @@ Import-Package: javax.annotation;version=0.0.0,*
 			<artifactId>guava</artifactId>
 			<version>26.0-jre</version>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-searchconsole</artifactId>
+			<version>v1-rev20230920-2.0.0</version>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.bnd</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+    </dependencies>
 </project>

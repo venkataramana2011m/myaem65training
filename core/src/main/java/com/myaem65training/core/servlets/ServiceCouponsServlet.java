@@ -61,18 +61,14 @@ public class ServiceCouponsServlet extends SlingSafeMethodsServlet {
         final Map<String, String> map = new HashMap<String, String>();
         map.put("type", "dam:Asset");
         map.put("path", "/content/dam");
-
         map.put("boolproperty", "jcr:content/contentFragment");
         map.put("boolproperty.value", "true");
         map.put("property", "jcr:content/data/cq:model");
-        map.put("property.value", "/conf/contentFragementPOC/settings/dam/cfm/models/service-coupons-discounts");
-             
-
+        map.put("property.value", "/conf/autoexpo/settings/dam/cfm/models/countrylist");
         final String search = req.getParameter("search");
         if (StringUtils.isNotEmpty(search)) {
             map.put("fulltext", search);
             map.put("fulltext.relPath", "jcr:content/data/master");
-            
         }
 
         int paramCount = 1;

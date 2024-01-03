@@ -1,0 +1,8 @@
+{
+  "nytimesEndPoint" : "https://api.nytimes.com/svc/",
+  "nytimesApiId": "8fa5985b-0a4b-4b12-a773-58bf5f2d1280",
+  "nytimesAPIKey": "y5GQJ5ljcgfpEZ4TpGRMnWb7RabGFPUB",
+  "nytimesSecretKey": "AVE7orBih1FoFfsN",
+  "nytimesBooksListEndPoint": "books/v3/lists.json",
+  "nytimesBooksListByCategoryEndPoint": "books/v3/lists/names.json"
+}

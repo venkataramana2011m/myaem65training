@@ -1,0 +1,51 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Book Listing Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || '' }">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+    <sly data-sly-call="${clientlib.all @ categories='clientlib.booklisting'}"></sly>
+    <div data-sly-use.config="com.myaem65training.core.models.MyNYTimesAPIModel">
+        <input type="hidden" id="nytimes-URL" value="${config.nytendPoint}" />
+        <input type="hidden" id="nytimes-app-id" value="${config.nytapiId}" />
+        <input type="hidden" id="nytimes-api-key" value="${config.nytaPIKey}" />
+        <input type="hidden" id="nytimes-secret-key" value="${config.nytsecretKey}" />
+        <input type="hidden" id="nytimes-book-list-url" value="${config.nytbooksByCategoryEndPoint}" />
+        <input type="hidden" id="nytimes-book-list-bycategory" value="${config.nytbooksListEndPoint}" />
+    </div>
+    <div class="my-divcontainer">
+        <div class="fixed"><span class="filterheading"></span>
+            <!--<div class="categories" id="booksCategoryList"> Categories</div>-->
+            <div class="accordion">
+                <!-- accordion section 1 -->
+                <h1 id="accordionhead_1">Categories</h1>
+                <div id="accordioncontent_1" class="accordion-content">
+                </div>
+
+                <!-- accordion section 2 -->
+                <h1 id="accordionhead_2">Heading2</h1>
+                <div id="accordioncontent_2" class="accordion-content">
+                    Content 2
+                </div>
+
+                <!-- accordion section 3 -->
+                <h1 id="accordionhead_3">Heading3</h1>
+                <div id="accordioncontent_3" class="accordion-content">
+                    Content 3
+                </div>
+
+                <!-- accordion section 4 -->
+                <h1 id="accordionhead_4">Heading4</h1>
+                <div id="accordioncontent_4" class="accordion-content">
+                    Content 4
+                </div>
+            </div>
+        </div>
+        <div class="flex-item">
+            <div id="booklist" class="main">
+
+            </div>
+        </div>
+    </div>    
+</sly>

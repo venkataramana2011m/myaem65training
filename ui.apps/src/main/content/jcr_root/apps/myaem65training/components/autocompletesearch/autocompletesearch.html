@@ -1,0 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly data-sly-call="${clientlib.all @ categories='autocompletesearch.clientlib'}"></sly>
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Auto Complete Search Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled}">
+    <div id="autocomplete-body">
+        <form autocomplete="off">
+            <div>
+                <input type="text" id="input" placeholder="Type a name here..." />
+            </div>
+            <ul class="list"></ul>
+        </form>
+    </div>
+</sly>
