@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="8dd0ba74-f105-4c0d-9a75-0aabf1d27dfe">
+    <jcr:content
+        dam:assetState="processed"
+        jcr:lastModified="{Date}2023-08-03T20:40:47.254+05:30"
+        jcr:lastModifiedBy="workflow-process-service"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}8"
+            dam:Comments="Software: Adobe ImageReady&#xa;XML:com.adobe.xmp: &lt;?xpacket begin=&quot;﻿&quot; id=&quot;W5M0MpCehiHzreSzNTczkc9d&quot;?> &lt;x:xmpmeta xmlns:x=&quot;adobe:ns:meta/&quot; x:xmptk=&quot;Adobe XMP Core 6.0-c006 79.dabacbb, 2021/04/14-00:39:44        &quot;> &lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;> &lt;rdf:Description rdf:about=&quot;&quot; xmlns:xmpMM=&quot;http://ns.adobe.com/xap/1.0/mm/&quot; xmlns:stRef=&quot;http://ns.adobe.com/xap/1.0/sType/ResourceRef#&quot; xmlns:xmp=&quot;http://ns.adobe.com/xap/1.0/&quot; xmpMM:OriginalDocumentID=&quot;uuid:D4F5CADCCE3CE511A162BC4CF114C8D0&quot; xmpMM:DocumentID=&quot;xmp.did:25CD612AF92511EB834FD01214E27BCD&quot; xmpMM:InstanceID=&quot;xmp.iid:25CD6129F92511EB834FD01214E27BCD&quot; xmp:CreatorTool=&quot;Adobe Photoshop CS3 Windows&quot;> &lt;xmpMM:DerivedFrom stRef:instanceID=&quot;xmp.iid:9f398224-f2c7-f643-9665-191d6ffa552e&quot; stRef:documentID=&quot;uuid:D4F5CADCCE3CE511A162BC4CF114C8D0&quot;/> &lt;/rdf:Description> &lt;/rdf:RDF> &lt;/x:xmpmeta> &lt;?xpacket end=&quot;r&quot;?>&#xa;"
+            dam:extracted="{Date}2023-08-03T20:40:45.905+05:30"
+            dam:Fileformat="PNG"
+            dam:MIMEtype="image/png"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}2"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="no"
+            dam:sha1="9eba345c9c28b28bc25188a2520ecdc76fb04b67"
+            dam:size="{Long}6677"
+            dc:format="image/png"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}350"
+            tiff:ImageWidth="{Long}950"
+            xmp:CreatorTool="Adobe Photoshop CS3 Windows"
+            xmpMM:DocumentID="xmp.did:25CD612AF92511EB834FD01214E27BCD"
+            xmpMM:InstanceID="xmp.iid:25CD6129F92511EB834FD01214E27BCD"
+            xmpMM:OriginalDocumentID="uuid:D4F5CADCCE3CE511A162BC4CF114C8D0">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="uuid:D4F5CADCCE3CE511A162BC4CF114C8D0"
+                stRef:instanceID="xmp.iid:9f398224-f2c7-f643-9665-191d6ffa552e"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

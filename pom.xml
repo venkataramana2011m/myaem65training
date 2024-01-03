@@ -39,9 +39,9 @@
 
     <properties>
         <aem.host>localhost</aem.host>
-        <aem.port>3322</aem.port>
+        <aem.port>4502</aem.port>
         <aem.publish.host>localhost</aem.publish.host>
-        <aem.publish.port>3323</aem.publish.port>
+        <aem.publish.port>4503</aem.publish.port>
         <sling.user>admin</sling.user>
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
@@ -91,7 +91,7 @@
                                 </requireMavenVersion>
                                 <requireJavaVersion>
                                     <message>Maven must be executed with a Java 8 JRE or higher.</message>
-                                    <version>1.8.0</version>
+                                    <version>1.11.0</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -740,6 +740,13 @@ Bundle-DocURL:
                 <artifactId>slf4j-test</artifactId>
                 <version>1.0.1</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.wcm.maven</groupId>
+                <artifactId>io.wcm.maven.aem-cloud-dependencies</artifactId>
+                <version>2021.3.5087.20210322T071003Z-210225.0000</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -27,4 +27,12 @@ public final class AppConstants {
     public static final long TODO_THREAD_SLEEP_TIME = 14400000;
     public static final String SUB_SERVICE = "tutorialSubService";
 
+    public static final String CONTENT_JSON ="application/json";
+
+    public static final String DEFAULT_BOOK_CATEGORY = "&list=combined-print-and-e-book-fiction";
+
+    public static final String URL_CATEGORY_PARAM = "list";
+
+    public static final String MESSAGE ="message";
+
 }
