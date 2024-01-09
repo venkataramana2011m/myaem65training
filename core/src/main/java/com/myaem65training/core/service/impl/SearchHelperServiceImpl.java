@@ -91,7 +91,7 @@ public class SearchHelperServiceImpl implements SearchHelperService {
                 }
                 request.setEntity(new StringEntity(payloadJson.toString()));
                 try(CloseableHttpResponse authResponse = this.getHttpClient().execute(request)){
-                    log.info("Connection has made successfully with the response code ::", authResponse.getStatusLine().getStatusCode());
+                    log.info("Connection has made successfully with the response code :: {}", authResponse.getStatusLine().getStatusCode());
                     JsonObject responseJson = null;
                     String resp = EntityUtils.toString(authResponse.getEntity(), UTF_8);
                     if(authResponse.getStatusLine().getStatusCode() == SC_OK){

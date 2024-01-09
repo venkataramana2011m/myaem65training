@@ -1,0 +1,100 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Book Detail Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || '' }">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+    <sly data-sly-call="${clientlib.all @ categories='clientlib.bookdetail'}"></sly>
+    <div book-detail-path="${resource.getPath}"></div>
+    <main class="bookcontainer">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+            <img class="active" src="/content/dam/myaem65training/bookdetail/iron_flame_the_empyrean_2/iron_flame_the_empyrean_2.png" alt="" id="featured-image">
+        </div>
+
+
+        <!-- Right Column -->
+        <div class="right-column">
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <span>Headphones</span>
+                <h1>Beats EP</h1>
+                <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+            </div>
+
+            <!-- Product Configuration -->
+            <div class="product-configuration">
+                <!-- Product Color -->
+                <div class="product-color">
+                    <div class="color-choose">
+                        <div class="small-Card">
+                            <img src="/content/dam/myaem65training/bookdetail/iron_flame_the_empyrean_2/iron_flame_the_empyrean_2.png" alt="" class="small-Img" onclick="fnshowImg(this.src);">
+                            <img src="/content/dam/myaem65training/bookdetail/iron_flame_the_empyrean_2/iron_flame_the_empyrean_2_1.jpg" alt="" class="small-Img" onclick="fnshowImg(this.src);">
+                            <img src="/content/dam/myaem65training/bookdetail/iron_flame_the_empyrean_2/iron_flame_the_empyrean_2_2.jpg" alt="" class="small-Img" onclick="fnshowImg(this.src);">
+                            <img src="/content/dam/myaem65training/bookdetail/iron_flame_the_empyrean_2/iron_flame_the_empyrean_2_3.png" alt="" class="small-Img" onclick="fnshowImg(this.src);">
+                        </div>                        
+                    </div>
+
+                </div>
+
+                <!-- Cable Configuration -->
+                <div class="cable-config">                    
+                </div>
+
+            </div>
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <span></span>
+
+            </div>
+
+            <!-- Start Tabs HTML -->
+            <div class="tabs">
+
+                <input type="radio" id="tab1" name="tab-control" checked>
+                <input type="radio" id="tab2" name="tab-control">
+                <input type="radio" id="tab3" name="tab-control">
+                <input type="radio" id="tab4" name="tab-control">
+                <input type="radio" id="tab5" name="tab-control">
+                <ul>
+                    <li title="Isbn Details"><label for="tab1" role="button"><span>Isbn Details</span></label></li>
+                    <li title="Reviews"><label for="tab2" role="button"><span>Reviews</span></label></li>
+                    <li title="Buying Options"><label for="tab3" role="button"><span>Buying Options</span></label></li>
+                    <li title="Ratings"><label for="tab4" role="button"><span>Ratings</span></label></li>
+                    <li title="Ranks History"><label for="tab5" role="button"><span>Ranks History</span></label></li>
+                </ul>
+
+                <div class="slider">
+                    <div class="indicator"></div>
+                </div>
+                <div class="content">
+                    <section>
+                        <h2>Isbn Details</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem sequi, quo tempore in eum obcaecati atque quibusdam officiis est dolorum minima deleniti ratione molestias numquam. Voluptas voluptates quibusdam cum?</p>
+                    </section>
+                    <section>
+                        <h2>Reviews</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique nulla.</p>
+                    </section>
+                    <section>
+                        <h2>Buying Options</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nemo ducimus eius, magnam error quisquam sunt voluptate labore, excepturi numquam! Alias libero optio sed harum debitis! Veniam, quia in eum.</p>
+                    </section>
+                    <section>
+                        <h2>Ratings</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque repudiandae architecto libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus molestiae enim deserunt necessitatibus eaque quidem incidunt.</p>
+                    </section>
+                    <section>
+                        <h2>Ranks History</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque repudiandae architecto libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus molestiae enim deserunt necessitatibus eaque quidem incidunt.</p>
+                    </section>
+                </div>
+            </div>
+            <!-- End Tabs HTML -->
+        </div>
+
+    </main>
+</sly>

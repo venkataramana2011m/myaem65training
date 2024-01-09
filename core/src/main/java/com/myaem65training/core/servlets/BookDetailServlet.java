@@ -14,6 +14,7 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import com.myaem65training.core.utils.RequestUtil;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.ServletResolverConstants;
+import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
@@ -28,18 +29,20 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@Component(service = Servlet.class,
+@Component(service = {Servlet.class},
         property = {
         Constants.SERVICE_DESCRIPTION + "=Book Detail Servlet",
-        ServletResolverConstants.SLING_SERVLET_METHODS + "=" + HttpConstants.METHOD_GET,
+        ServletResolverConstants.SLING_SERVLET_METHODS + "=" + HttpConstants.METHOD_POST,
         ServletResolverConstants.SLING_SERVLET_PATHS + "=/bin/myaem65training/bookdetail",
-        ServletResolverConstants.SLING_SERVLET_EXTENSIONS + "=json"  })
-public class BookDetailServlet extends SlingSafeMethodsServlet {
+                ServletResolverConstants.DEFAULT_RESOURCE_TYPE + "=sling/servlet/default",
+                ServletResolverConstants.SLING_SERVLET_SELECTORS + "=bookDetailSelector"
+})
+public class BookDetailServlet extends SlingAllMethodsServlet {
     private static final Logger log = LoggerFactory.getLogger(BookDetailServlet.class);
     @Reference
     private transient SearchHelperService searchHelperService;
     @Override
-    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
         JsonObject jsonResponse = new JsonObject();
         JsonParser parser = new JsonParser();
         MyNYTimesApiConfigurationFactory config = null;
@@ -70,12 +73,12 @@ public class BookDetailServlet extends SlingSafeMethodsServlet {
                 jsonResponse.addProperty(AppConstants.MESSAGE, jsonBookDetailResponse.getAsJsonObject("error").get("errorDescription").getAsString());
             }
         } catch(JsonParseException e){
-            log.error("Could not formulate the JSON response", e);
+            log.error("Could not formulate the JSON response {} ", e.getMessage());
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
             jsonResponse.addProperty(AppConstants.MESSAGE, e.getMessage());
         } catch(IllegalArgumentException | UnsupportedOperationException e){
-            log.error("IllegalArgumentException | UnsupportedOperationException :: ", e.getMessage());
+            log.error("IllegalArgumentException | UnsupportedOperationException {} ", e.getMessage());
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getMessage());
             jsonResponse.addProperty(AppConstants.MESSAGE, e.getMessage());
@@ -98,4 +101,6 @@ public class BookDetailServlet extends SlingSafeMethodsServlet {
         }
         return requestURL;
     }
+
+
 }

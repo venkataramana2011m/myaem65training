@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="ff1d007c-5171-41df-866a-eb2e97e80919">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-02T12:16:30.627+05:30"
+        cq:lastModifiedBy="admin"
+        cq:name="bangalore"
+        cq:parentPath="/content/dam/myaem65training/myautoexpocontentfragement/cfpocdistrict"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2022-03-21T21:58:14.039+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Bangalore"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2022-03-21T21:58:14.040+05:30">
+        <data
+            cq:model="/conf/myaem65training/settings/dam/cfm/models/districtlist"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                multiTxtAboutDistrict="Testing this"
+                multiTxtAboutDistrict_x0040_ContentType="text/plain"
+                multiTxtAboutDistrict_x0040_LastModified="{Date}2022-03-21T21:58:13.958+05:30"
+                txtDistrictCode="BGLR"
+                txtDistrictCode_x0040_LastModified="{Date}2022-03-21T21:58:13.957+05:30"
+                txtDistrictName="Bangalore"
+                txtDistrictName_x0040_LastModified="{Date}2022-03-21T21:58:13.954+05:30"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

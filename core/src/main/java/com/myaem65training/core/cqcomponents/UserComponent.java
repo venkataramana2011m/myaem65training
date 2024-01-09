@@ -1,12 +1,10 @@
 package com.myaem65training.core.cqcomponents;
 
-import java.util.Calendar;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import javax.jcr.Session;
 
+import com.myaem65training.core.models.UserDetail;
 import org.apache.jackrabbit.api.JackrabbitSession;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.UserManager;
@@ -27,8 +25,9 @@ public class UserComponent extends WCMUsePojo {
 	 * Logger
 	 */
 	private static final Logger log = LoggerFactory.getLogger(UserComponent.class);
+	private List<String> users, groups, usersProfileImg;
 
-	private List<String> users, groups, userLastModified, groupsLastModified;
+	private Map<List<String>, List<String>> userdet;
 
 	private Session session;
 
@@ -36,48 +35,35 @@ public class UserComponent extends WCMUsePojo {
 	public void activate() throws Exception {
 
 		try {
-
-			log.info("----------< Processing starts >----------");
-
 			ResourceResolver resourceResolver = getResourceResolver();
-
 			session = resourceResolver.adaptTo(Session.class);
 
 			UserManager userManager = ((JackrabbitSession) session).getUserManager();
-
 			Iterator<Authorizable> userIterator = userManager.findAuthorizables("jcr:primaryType", "rep:User");
 			Iterator<Authorizable> groupIterator = userManager.findAuthorizables("jcr:primaryType", "rep:Group");
-
 			users = new LinkedList<>();
+			usersProfileImg = new LinkedList<>();
 			groups = new LinkedList<>();
-			userLastModified = new LinkedList<>();
-			groupsLastModified = new LinkedList<>();
-			
+			userdet = new HashMap<>();
 			while (userIterator.hasNext()) {
-
-				log.info("Getting user");
-
 				Authorizable user = userIterator.next();
-
 				if (!user.isGroup()) {
 					log.info("User found: {}", user.getID());
 					users.add(user.getID());
+					usersProfileImg.add(user.getPath()+"/profile.profile.image");
+
 				}
 			}
-
+			userdet.put(users, usersProfileImg);
 			while (groupIterator.hasNext()) {
-
 				log.info("Getting group");
-
 				Authorizable group = groupIterator.next();
-
 				if (group.isGroup()) {
 					log.info("Group found {}", group.getID());
 					groups.add(group.getID());
 				}
 			}
 		} catch (Exception e) {
-
 			log.error(e.getMessage(), e);
 		}
 	}
@@ -96,5 +82,18 @@ public class UserComponent extends WCMUsePojo {
 	public List<String> getGroups() {
 		return groups;
 	}
+
+
+	/**
+	 * @return the users
+	 */
+	public List<String> getUsersProfileImg() {
+		return usersProfileImg;
+	}
+
+	public Map<List<String>, List<String>> getUserdet() {
+		return userdet;
+	}
+
 
 }

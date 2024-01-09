@@ -33,9 +33,7 @@ import com.myaem65training.core.service.SearchService;
 		"sling.servlet.extensions=" + "json" })
 public class FetchUserDetailsServlet extends SlingSafeMethodsServlet {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 2057483906330608157L;
 	@Reference
 	private QueryBuilder builder;

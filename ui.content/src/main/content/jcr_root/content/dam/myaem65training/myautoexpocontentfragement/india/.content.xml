@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="9486ab24-8090-40f6-a603-0dacf3f6972b">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-02T12:16:30.693+05:30"
+        cq:lastModifiedBy="admin"
+        cq:name="india"
+        cq:parentPath="/content/dam/myaem65training/myautoexpocontentfragement"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2022-03-21T23:46:52.927+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="india"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2022-03-21T23:46:52.929+05:30">
+        <data
+            cq:model="/conf/myaem65training/settings/dam/cfm/models/countrylist"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                multiStateList="[/content/dam/myaem65training/myautoexpocontentfragement/karnataka,/content/dam/myaem65training/myautoexpocontentfragement/andhra-pradesh]"
+                multiStateList_x0040_LastModified="{Date}2022-03-21T23:46:52.752+05:30"
+                txtCountryCode="IN"
+                txtCountryCode_x0040_LastModified="{Date}2022-03-21T23:46:52.746+05:30"
+                txtCountryName="India"
+                txtCountryName_x0040_LastModified="{Date}2022-03-21T23:46:52.743+05:30"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

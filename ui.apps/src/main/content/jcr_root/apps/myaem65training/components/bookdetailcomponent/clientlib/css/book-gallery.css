@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+/* Basic Styling
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+} */
+
+.small-Card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-top: 15px;
+  gap: 12px;
+}
+
+.small-Card img {
+  width: 104px;
+  height: 104px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.small-Card img:active {
+  border: 1px solid #17696a;
+}
+
+.sm-card {
+  border: 2px solid darkred;
+}
+
+.bookcontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Columns */
+.left-column {
+  width: 40%;
+  position: relative;
+  left:-125px;
+  filter: drop-shadow(5px 5px 5px #222); 
+}
+
+.right-column {
+  width: 60%;
+  margin-top: 60px;
+}
+
+
+/* Left Column */
+.left-column img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.left-column img.active {
+  opacity: 1;
+}
+
+
+/* Right Column */
+
+/* Product Description */
+.product-description {
+  border-bottom: 1px solid #E1E8EE;
+  margin-bottom: 20px;
+}
+.product-description span {
+  font-size: 12px;
+  color: #358ED7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.product-description h1 {
+  font-weight: 300;
+  font-size: 52px;
+  color: #43484D;
+  letter-spacing: -2px;
+}
+.product-description p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #86939E;
+  line-height: 24px;
+}
+
+/* Product Configuration */
+.product-color span,
+.cable-config span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #86939E;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* Product Color */
+.product-color {
+  margin-bottom: 30px;
+}
+
+.color-choose div {
+  display: inline-block;
+}
+
+.color-choose input[type="radio"] {
+  display: none;
+}
+
+.color-choose input[type="radio"] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.color-choose input[type="radio"] + label span {
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+}
+
+.color-choose input[type="radio"]#red + label span {
+  background-color: #C91524;
+}
+.color-choose input[type="radio"]#blue + label span {
+  background-color: #314780;
+}
+.color-choose input[type="radio"]#black + label span {
+  background-color: #323232;
+}
+
+.color-choose input[type="radio"]:checked + label span {
+  background-image: url(images/check-icn.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Cable Configuration */
+.cable-choose {
+  margin-bottom: 20px;
+}
+
+.cable-choose button {
+  border: 2px solid #E1E8EE;
+  border-radius: 6px;
+  padding: 13px 20px;
+  font-size: 14px;
+  color: #5E6977;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.cable-choose button:hover,
+.cable-choose button:active,
+.cable-choose button:focus {
+  border: 2px solid #86939E;
+  outline: none;
+}
+
+.cable-config {
+  border-bottom: 1px solid #E1E8EE;
+  margin-bottom: 20px;
+}
+
+.cable-config a {
+  color: #358ED7;
+  text-decoration: none;
+  font-size: 12px;
+  position: relative;
+  margin: 10px 0;
+  display: inline-block;
+}
+.cable-config a:before {
+  content: "?";
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(53, 142, 215, 0.5);
+  display: inline-block;
+  text-align: center;
+  line-height: 16px;
+  opacity: 0.5;
+  margin-right: 5px;
+}
+
+/* Product Price */
+.product-price {
+  display: flex;
+  align-items: center;
+}
+
+.product-price span {
+  font-size: 26px;
+  font-weight: 300;
+  color: #43474D;
+  margin-right: 20px;
+}
+
+.cart-btn {
+  display: inline-block;
+  background-color: #7DC855;
+  border-radius: 6px;
+  font-size: 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all .5s;
+}
+.cart-btn:hover {
+  background-color: #64af3d;
+}
+
+/* Responsive */
+@media (max-width: 940px) {
+  .container {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+
+  .left-column img {
+    width: 300px;
+    right: 0;
+    top: -65px;
+    left: initial;
+  }
+}
+
+@media (max-width: 535px) {
+  .left-column img {
+    width: 220px;
+    top: -85px;
+  }
+}
+
+
+
+
+.tabs {
+	 left: 50%;
+	 -webkit-transform: translateX(-50%);
+	         transform: translateX(-50%);
+	 position: relative;
+	 background: white;
+	 padding: 20px 50px;
+	 width: 100%;
+	 border-radius: 5px;
+	 min-width: 240px;
+     min-height: 500px;
+    overflow: auto;
+}
+ .tabs input[name="tab-control"] {
+	 display: none;
+}
+ .tabs .content section h2, .tabs ul li label {
+	 font-size: 18px;
+	 color: #428bff;
+}
+ .tabs ul {
+	 list-style-type: none;
+	 padding-left: 0;
+	 display: -webkit-box;
+	 display: flex;
+	 -webkit-box-orient: horizontal;
+	 -webkit-box-direction: normal;
+	         flex-direction: row;
+	 margin-bottom: 10px;
+	 -webkit-box-pack: justify;
+	         justify-content: space-between;
+	 -webkit-box-align: end;
+	         align-items: flex-end;
+	 flex-wrap: wrap;
+}
+ .tabs ul li {
+	 box-sizing: border-box;
+	 -webkit-box-flex: 1;
+	         flex: 1;
+	 width: 25%;
+	 padding: 0 10px;
+	 text-align: center;
+}
+ .tabs ul li label {
+	 -webkit-transition: all 0.3s ease-in-out;
+	 transition: all 0.3s ease-in-out;
+	 color: #929daf;
+	 padding: 5px auto;
+	 
+	 display: block;
+	 cursor: pointer;
+	 -webkit-transition: all 0.2s ease-in-out;
+	 transition: all 0.2s ease-in-out;
+	 white-space: nowrap;
+	 -webkit-touch-callout: none;
+     user-select: none;
+}
+ .tabs ul li label:hover, .tabs ul li label:focus, .tabs ul li label:active {
+	 outline: 0;
+	 color: #bec5cf;
+}
+
+ .tabs .slider {
+	 position: relative;
+	 width: 25%;
+	 -webkit-transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+	 transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+}
+ .tabs .slider .indicator {
+	 position: relative;
+	 width: 50px;
+	 max-width: 100%;
+	 margin: 0 auto;
+	 height: 4px;
+	 background: #EB3349;
+	 border-radius: 1px;
+}
+ .tabs .content {
+	 margin-top: 30px;
+}
+ .tabs .content section {
+	 display: none;
+	 -webkit-animation-name: content;
+	         animation-name: content;
+	 -webkit-animation-direction: normal;
+	         animation-direction: normal;
+	 -webkit-animation-duration: 0.3s;
+	         animation-duration: 0.3s;
+	 -webkit-animation-timing-function: ease-in-out;
+	         animation-timing-function: ease-in-out;
+	 -webkit-animation-iteration-count: 1;
+	         animation-iteration-count: 1;
+	 line-height: 1.4;
+}
+ .tabs input[name="tab-control"]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+	 cursor: default;
+	 color: #EB3349;
+}
+
+ @media (max-width: 600px) {
+	 .tabs input[name="tab-control"]:nth-of-type(1):checked ~ ul > li:nth-child(1) > label {
+		 background: rgba(0, 0, 0, 0.08);
+	}
+}
+ .tabs input[name="tab-control"]:nth-of-type(1):checked ~ .slider {
+	 -webkit-transform: translateX(0%);
+	         transform: translateX(0%);
+}
+ .tabs input[name="tab-control"]:nth-of-type(1):checked ~ .content > section:nth-child(1) {
+	 display: block;
+}
+
+ .tabs input[name="tab-control"]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+	 cursor: default;
+	 color: #EB3349;
+}
+
+ @media (max-width: 600px) {
+	 .tabs input[name="tab-control"]:nth-of-type(2):checked ~ ul > li:nth-child(2) > label {
+		 background: rgba(0, 0, 0, 0.08);
+	}
+}
+ .tabs input[name="tab-control"]:nth-of-type(2):checked ~ .slider {
+	 -webkit-transform: translateX(65%);
+	         transform: translateX(65%);
+}
+ .tabs input[name="tab-control"]:nth-of-type(2):checked ~ .content > section:nth-child(2) {
+	 display: block;
+}
+ .tabs input[name="tab-control"]:nth-of-type(3):checked ~ ul > li:nth-child(3) > label {
+	 cursor: default;
+	 color: #EB3349;
+}
+
+ @media (max-width: 600px) {
+	 .tabs input[name="tab-control"]:nth-of-type(3):checked ~ ul > li:nth-child(2) > label {
+		 background: rgba(0, 0, 0, 0.08);
+	}
+}
+ .tabs input[name="tab-control"]:nth-of-type(3):checked ~ .slider {
+	 -webkit-transform: translateX(135%);
+	         transform: translateX(135%);
+}
+ .tabs input[name="tab-control"]:nth-of-type(3):checked ~ .content > section:nth-child(3) {
+	 display: block;
+}
+ .tabs input[name="tab-control"]:nth-of-type(4):checked ~ ul > li:nth-child(4) > label {
+	 cursor: default;
+	 color: #EB3349;
+}
+
+ @media (max-width: 600px) {
+	 .tabs input[name="tab-control"]:nth-of-type(4):checked ~ ul > li:nth-child(4) > label {
+		 background: rgba(0, 0, 0, 0.08);
+	}
+}
+ .tabs input[name="tab-control"]:nth-of-type(4):checked ~ .slider {
+	 -webkit-transform: translateX(225%);
+	         transform: translateX(225%);
+}
+ .tabs input[name="tab-control"]:nth-of-type(4):checked ~ .content > section:nth-child(4) {
+	 display: block;
+}
+ .tabs input[name="tab-control"]:nth-of-type(5):checked ~ ul > li:nth-child(5) > label {
+	 cursor: default;
+	 color: #EB3349;
+}
+
+ @media (max-width: 600px) {
+	 .tabs input[name="tab-control"]:nth-of-type(5):checked ~ ul > li:nth-child(5) > label {
+		 background: rgba(0, 0, 0, 0.08);
+	}
+}
+ .tabs input[name="tab-control"]:nth-of-type(5):checked ~ .slider {
+	 -webkit-transform: translateX(300%);
+	         transform: translateX(300%);
+}
+ .tabs input[name="tab-control"]:nth-of-type(5):checked ~ .content > section:nth-child(5) {
+	 display: block;
+}
+/* @-webkit-keyframes content {
+	 from {
+		 opacity: 0;
+		 -webkit-transform: translateY(5%);
+		         transform: translateY(5%);
+	}
+	 to {
+		 opacity: 1;
+		 -webkit-transform: translateY(0%);
+		         transform: translateY(0%);
+	}
+}
+ @keyframes content {
+	 from {
+		 opacity: 0;
+		 -webkit-transform: translateY(5%);
+		         transform: translateY(5%);
+	}
+	 to {
+		 opacity: 1;
+		 -webkit-transform: translateY(0%);
+		         transform: translateY(0%);
+	}
+}
+ @media (max-width: 1000px) {
+	 .tabs ul li label {
+		 white-space: initial;
+	}
+}*/

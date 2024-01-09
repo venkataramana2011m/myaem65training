@@ -38,7 +38,7 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 
 @SuppressWarnings("ALL")
-@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Query Builder servlet",
+@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Navigation Servlet",
         "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.paths=" + "/bin/myaem65training/navigation" })
 public class NavigationServlet extends SlingSafeMethodsServlet {
     /**

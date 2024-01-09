@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="d8a9a7f4-3636-4b43-9346-7bd792b3144d">
+    <jcr:content
+        cq:lastModified="{Date}2023-08-04T19:43:28.256+05:30"
+        cq:lastModifiedBy="admin"
+        dam:assetState="processed"
+        jcr:lastModified="{Date}2023-08-04T19:36:44.345+05:30"
+        jcr:lastModifiedBy="workflow-process-service"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:Bitsperpixel="{Long}24"
+            dam:extracted="{Date}2023-08-04T19:36:42.453+05:30"
+            dam:Fileformat="JPEG"
+            dam:MIMEtype="image/jpeg"
+            dam:Numberofimages="{Long}1"
+            dam:Numberoftextualcomments="{Long}0"
+            dam:Physicalheightindpi="{Long}-1"
+            dam:Physicalheightininches="{Decimal}-1.0"
+            dam:Physicalwidthindpi="{Long}-1"
+            dam:Physicalwidthininches="{Decimal}-1.0"
+            dam:Progressive="no"
+            dam:sha1="44e09e95a6459c51e3695faac9f23d8ad72474b0"
+            dam:size="{Long}237193"
+            dc:creator="[Vadim Daniel]"
+            dc:creator_xmpArrayType="rdf:Seq"
+            dc:format="image/jpeg"
+            dc:rights="Vadim Daniel Photography"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            tiff:ImageLength="{Long}1050"
+            tiff:ImageWidth="{Long}1400"
+            xmp:CreatorTool="Adobe Photoshop CC 2015.5 (Macintosh)"
+            xmpMM:DocumentID="xmp.did:BDE9B9FA479511E7A772FAD66BB2460F"
+            xmpMM:InstanceID="xmp.iid:BDE9B9F9479511E7A772FAD66BB2460F"
+            xmpMM:OriginalDocumentID="xmp.did:71d89d34-7748-4225-aa1a-a739ae4e0f7a">
+            <xmpMM:DerivedFrom
+                jcr:primaryType="nt:unstructured"
+                stRef:documentID="adobe:docid:photoshop:8d8d2220-ca25-1179-9e46-d84b16949833"
+                stRef:instanceID="xmp.iid:4044d6f5-77d2-400e-9671-b51cca46fdef"
+                xmpNodeType="xmpStruct"/>
+            <Iptc4xmpCore:CreatorContactInfo
+                Iptc4xmpCore:CiAdrCity="Lachine"
+                Iptc4xmpCore:CiAdrCtry="Canada"
+                Iptc4xmpCore:CiAdrExtadr="732E 2e avenue"
+                Iptc4xmpCore:CiAdrPcode="h8s0a5"
+                Iptc4xmpCore:CiAdrRegion="QC"
+                Iptc4xmpCore:CiEmailWork="vadimdaniel@me.com"
+                Iptc4xmpCore:CiTelWork="514 5833007"
+                jcr:primaryType="nt:unstructured"
+                xmpNodeType="xmpStruct"/>
+        </metadata>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

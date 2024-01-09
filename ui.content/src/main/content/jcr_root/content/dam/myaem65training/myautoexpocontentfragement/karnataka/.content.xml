@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c221dc6e-3940-4c97-850b-9785e375c477">
+    <jcr:content
+        cq:lastModified="{Date}2024-01-02T12:16:30.719+05:30"
+        cq:lastModifiedBy="admin"
+        cq:name="karnataka"
+        cq:parentPath="/content/dam/myaem65training/myautoexpocontentfragement"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2022-03-21T23:45:42.004+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Karnataka"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2022-03-21T23:45:42.005+05:30">
+        <data
+            cq:model="/conf/myaem65training/settings/dam/cfm/models/statelist"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                multiDistrictList="[/content/dam/myaem65training/myautoexpocontentfragement/bangalore]"
+                multiDistrictList_x0040_LastModified="{Date}2022-03-21T23:45:41.901+05:30"
+                txtStateCode="KA"
+                txtStateCode_x0040_LastModified="{Date}2022-03-21T23:45:41.899+05:30"
+                txtStateName="Karnataka"
+                txtStateName_x0040_LastModified="{Date}2022-03-21T23:45:41.896+05:30"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
