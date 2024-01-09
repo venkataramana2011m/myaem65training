@@ -1,19 +1,31 @@
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='clientlib-userlisting'}"/>
-
-<h1>Users/Groups in the AEM JCR are : </h1>
-<p>This is your AEM HTML Template Language component using WCMUsePojo</p>
-<div class="userlist-body" data-sly-use.object="com.myaem65training.core.cqcomponents.UserComponent">
-   <section class="user-list" >
-		<article class="user" data-sly-repeat="${object.groups}">            
-			<header class="user-header">
-                <p>May 18th 2020</p>
-                <img src="/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg" />
-            </header>
-            <div class="user-details">
-				<h2><a href="#" onclick="">${item}</a></h2>
-                <p>testungsljkgnsfkjghdfkjsgndfgk sdqrlasjhdfljkhsdf sadjfbgljhsafdbfsd</p>
-            </div>
-		</article>
-	</section>    
-</div>
-
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Leadership Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || '' }">
+    <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='clientlib-userlisting'}" />
+     <div class="my-divcontainer">
+        <div class="fixed"><span class="filterheading"></span></div>
+        <div class="flex-item"></div>
+     </div>
+    <div class="userlist-body" data-sly-use.object="com.myaem65training.core.cqcomponents.UserComponent"><br/>
+        <div class="my-divcontainer">
+        <h2 class="filterheading">Executive Leadership Team</h2>
+           
+            <div class="flex-item"><a class="user-create-link" href="#"> Request a Speaker</a></div>
+         </div><br/><br/>
+        <section class="user-list">
+            <sly data-sly-repeat.keyName="${object.userdet}">
+                <article class="user" data-sly-repeat="${keyName}">
+                    <header class="user-header">
+                        <img src="${object.userdet[keyName][itemList.index]}" />
+                    </header>
+                    <div class="user-details">
+                        <div class="user-hrow-head"><span class="user-hrow-text"></span></div>
+                        <h2><a id="${item}" href="#" onclick="fnCreatePage(this.id);">${item}</a></h2>
+                    </div>
+                </article>
+            </sly>
+        </section>
+        <br/>
+    </div>
+</sly>

@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="sling:OrderedFolder">
     <jcr:content
         cq:conf="/conf/myaem65training"
+        jcr:lastModified="{Date}2024-01-02T12:13:40.161+05:30"
+        jcr:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"
-        jcr:title="My AEM 65 Training">
+        jcr:title="My AEM 65 Training"
+        metadataSchema="System Default"
+        processingProfile="System Default">
         <folderThumbnail/>
+        <policies jcr:primaryType="nt:unstructured">
+            <cfm
+                jcr:primaryType="nt:unstructured"
+                policy-cfm-allowedModelsByPaths="[/conf/myaem65training]"/>
+        </policies>
     </jcr:content>
     <asset.jpg/>
+    <mycarouselfolder/>
+    <profiles/>
+    <videos/>
+    <ltimindtree-logo.png/>
+    <myprofiles/>
+    <hdfiction.jpg/>
+    <Adobe-Experience-Manager-Developer-Course-AEM.jpg/>
+    <rep:policy/>
+    <myautoexpocontentfragement/>
+    <bookdetail/>
 </jcr:root>
