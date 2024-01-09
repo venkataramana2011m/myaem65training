@@ -1,6 +1,13 @@
 package com.myaem65training.core.servlets;
 
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.Hit;
+import com.day.cq.search.result.SearchResult;
+import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -8,9 +15,11 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.json.JSONObject;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -23,6 +32,10 @@ import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,54 +58,69 @@ public class CreateUserDetailPageServlet extends SlingAllMethodsServlet {
     private String path = "/content/myaem65training/us/en/leadership";
     private Page prodPage = null;
     private Session session;
+    @Reference
+    private QueryBuilder builder;
+    private PageManager pageManager;
 
     @Override
     protected void doGet(@Nonnull SlingHttpServletRequest request, @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
         try{
-            log.info("----------< Executing Query Builder Servlet >----------");
             resourceResolver = request.getResourceResolver();
             session = resourceResolver.adaptTo(Session.class);
             if(request.getParameter("userID").toString() != null){
                 String userId = request.getParameter("userID").toString();
                 pageName = userId.toLowerCase().replace(".","-");
                 pageTitle = userId.toUpperCase().replace("."," ");
-                log.info("Page Name :: {} ", pageName);
-                log.info("Page Title :: {} ", pageTitle);
-                createPages(pageName, pageTitle, resourceResolver);
+                if(checkPageExists(pageName, pageName, path, resourceResolver, request) == false) {
+                    createPages(pageName, pageTitle, resourceResolver);
+                }
             }
             session.save();
             session.refresh(true);
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
-        } finally {
-            if (session != null) {
-                session.logout();
-            }
+        } catch (Exception e) { log.error(e.getMessage(), e); }
+        finally {
+            if (session != null) { session.logout(); }
         }
     }
 
     public void createPages(String pageName, String pageTitle, ResourceResolver resourceResolver) {
         try {
-            log.error("With in the Create Page method ...... !!!! ");
             PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-            log.error("With in the Create Page method ...... !!!! ");
             prodPage = pageManager.create(path, pageName, PAGE_TEMPLATE, pageTitle, true);
             Resource resource = resourceResolver.getResource(prodPage.getPath());
             Node pageNode = resource.adaptTo(Node.class);
             Node jcrNode = null;
-            if (prodPage.hasContent()) {
-                jcrNode = prodPage.getContentResource().adaptTo(Node.class);
-            } else {
-                jcrNode = pageNode.addNode("jcr:content", "cq:PageContent");
-            }
+            if (prodPage.hasContent()) {jcrNode = prodPage.getContentResource().adaptTo(Node.class);}
+            else {jcrNode = pageNode.addNode("jcr:content", "cq:PageContent");}
             jcrNode.setProperty("sling:resourceType", RENDERER);
             Node root = session.getNode(prodPage.getPath().toString() + "/jcr:content/root/container/container");
             Node day = root.addNode("biographycomponent", "nt:unstructured");
             day.setProperty("sling:resourceType", "myaem65training/components/biographycomponent");
-
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
+    }
+
+    public boolean checkPageExists(String pageName, String pageTitle, String path, ResourceResolver resourceResolver, SlingHttpServletRequest request){
+        boolean pageExists = false;
+       try {
+           resourceResolver = request.getResourceResolver();
+           PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
+           Page rootPage = pageManager.getPage(path);
+           Iterator<Page> rootPageIterator = rootPage.listChildren(new PageFilter(), true);;
+           while(rootPageIterator.hasNext())
+           {
+               Page childPage =  rootPageIterator.next();
+               String childPagePath = childPage.getPath();
+               if(childPage.getName().equalsIgnoreCase(pageName)){
+                   pageExists = true;
+                   return pageExists;
+               }
+           }
+       }catch (Exception e){
+           log.error(e.getMessage(),e);
+       }
+        return pageExists;
     }
 
 }
