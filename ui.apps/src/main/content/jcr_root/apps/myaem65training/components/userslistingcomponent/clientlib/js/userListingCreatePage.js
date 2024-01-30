@@ -14,7 +14,7 @@ function fnOpenUserDetailedPage(targetUserID){
     var userId = targetUserID.split("-");
     var selectedUserID = $("#user-id-"+userId[1]).val();   
     createCookie('selectedUser',selectedUserID,7);
-    url = "/content/myaem65training/us/en/leadership/leadershipdetails.html?wcmmode=disabled"; 
+    url = "/content/myaem65training/us/en/leadership/leadershipdetails.html"; 
     window.open(url, '_blank');
 }
 function fnCreateUserDetailedPage(targetUserID){
