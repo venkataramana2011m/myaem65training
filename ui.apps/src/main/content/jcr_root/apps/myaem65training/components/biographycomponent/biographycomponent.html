@@ -1,0 +1,43 @@
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Biography Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || '' }">
+    <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientLib.all @ categories='clientlib-userdetail'}" />
+    <div class="userDetailsTitle">
+        <h2><span></span></h2>
+    </div>
+    <div class="userDetailsMainContainer">
+        <div class="userDetailsAboutme">
+            <h1 class="user-job-name" id="userName">Carol B. Tomé</h1>
+            <p id="aboutme">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut.y</p>
+            <div>
+                <span class="iconname">Given Name :</span>
+                <span class="userdet" id="usergivenname"></span>
+            </div>
+            <div>
+                <span class="iconname">Group Name :</span>
+                <span class="userdet" id="usergroupname"></span>
+            </div>
+            <div>
+                <span class="iconname">User Id :</span>
+                <span class="userdet" id="user-id"></span>
+            </div>
+            <div>
+                <span class="iconname">User Path</span>
+                <span class="userdet" id="user-path"></span>
+            </div>
+            <div>
+                <span class="iconname">Email Id :</span>
+                <span class="userdet" id="user-emailid"></span>
+            </div>
+        </div>
+        <div class="userDetailsPicture">
+            <picture>
+                <source srcset="/content/dam/upsstories/images/about-us/leadership/380x380_CarolBTome.jpg" media="(min-width: 992px)" id="minImg800">
+                <source srcset="/content/dam/upsstories/images/about-us/leadership/380x380_CarolBTome.jpg" media="(min-width: 800px)" id="minImg992">
+                <img srcset="/content/dam/upsstories/images/about-us/leadership/380x380_CarolBTome.jpg" alt="Carol B. Tomé" loading="lazy" alt="Mywife Profile" id="userProfilePic">
+            </picture>
+        </div>
+
+    </div>
+</sly>

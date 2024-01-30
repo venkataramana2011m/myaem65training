@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>myaem65training.ui.tests</name>
-	<comment></comment>
+	<comment>UI Tests for My AEM 65 Training. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1703571618195</id>
+			<id>1705670997955</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

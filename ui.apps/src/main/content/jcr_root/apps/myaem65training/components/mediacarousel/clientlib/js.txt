@@ -1,4 +1,0 @@
-#base=js
-
-mycarousel.js
-videocarousel.js

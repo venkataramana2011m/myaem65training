@@ -1,30 +1,51 @@
 $(document).ready(function() {
-    /*$.ajax({
-        url: "/bin/myaem65training/createuserdetailpage?userID="+ $("#trgtselectedpath").val(),
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            $.each(data, function(index, value) {
-                $('.country-list').append("<li class='country-list-item'><a class='country-list-item-name' href='#' id='" + value.countryCode + "' >" + value.countryName + "</a></li>");
-            });
-        }
-    });*/
+   fnFetchPages();
+    $("#btnCreateUser").click(function(){
+        var e = document.querySelector(".user");
+        const elements = document.querySelectorAll('.user');
+        const count = elements.length;
+        for(var i=0;i<count;i++){
+        	fnCreateUserDetailedPage($("#user-"+i).val());            
+        }        
+    });
 });
-function fnCreatePage(trgtUserId){
-    console.log(trgtUserId);
-    var targetUserID = trgtUserId;
-    fnCreateUserDetailedPage(targetUserID);
+function fnOpenUserDetailedPage(targetUserID){  
+    var url="";
+    var userId = targetUserID.split("-");
+    var selectedUserID = $("#user-id-"+userId[1]).val();   
+    createCookie('selectedUser',selectedUserID,7);
+    url = "/content/myaem65training/us/en/leadership/leadershipdetails.html?wcmmode=disabled"; 
+    window.open(url, '_blank');
 }
 function fnCreateUserDetailedPage(targetUserID){
     $.ajax({
         url: "/bin/myaem65training/createuserdetailpage?userID="+ targetUserID,
         type: 'GET',
         dataType: 'json',
-        success: function(data) {
-            console.log('Page created successfully ..... !!');
+        success: function(myresponse) {            
+            console.log('Page created successfully ..... !!');            
         },
-        failure: function(data) {
+        failure: function(myresponse) {
             console.log('Error in Page creation ..... !!');
         }
-    });
+    });    
+   
 }
+function fnFetchPages(){
+    $.ajax({
+        url: "/bin/myaem65training/fetchUserDetailPages",
+        type: 'GET',
+        dataType: 'json',
+        success: function(myresponse) {            
+            console.log('Page created successfully ..... !!');
+            $.each(myresponse.pageList,function(key, value){
+               console.log("Title : " + value["pageTitle"] + "Name : " + value["pageName"] + "Page Path :: " + value["pagePath"] + " my Property : " + value["myprop"]);  
+               console.log($("a .myhref").attr("id"));
+            });
+        },
+        failure: function(myresponse) {
+            console.log('Error in Page creation ..... !!');
+        }
+    });   
+}
+

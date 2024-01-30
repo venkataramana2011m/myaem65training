@@ -1,7 +1,11 @@
 package com.myaem65training.core.servlets;
 
 
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.Hit;
+import com.day.cq.search.result.SearchResult;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
@@ -15,6 +19,8 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.ServletResolverConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -27,7 +33,10 @@ import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 
 @SuppressWarnings("ALL")
 @Component(service= Servlet.class,
@@ -51,7 +60,9 @@ public class CreateUserDetailPageServlet extends SlingAllMethodsServlet {
     @Reference
     private QueryBuilder builder;
     private PageManager pageManager;
-
+    private JSONObject NavigationJson;
+    private JSONArray NavigationJsonArray;
+    private HashSet<String> uniquePageList;
     @Override
     protected void doGet(@Nonnull SlingHttpServletRequest request, @Nonnull SlingHttpServletResponse response) throws ServletException, IOException {
         try{
@@ -62,7 +73,7 @@ public class CreateUserDetailPageServlet extends SlingAllMethodsServlet {
                 pageName = userId.toLowerCase().replace(AppConstants.DOT,AppConstants.HYPHEN);
                 pageTitle = userId.toUpperCase().replace(AppConstants.DOT,AppConstants.SPACE);
                 if(checkPageExists(pageName, pageName, path, resourceResolver, request) == false) {
-                    createPages(pageName, pageTitle, resourceResolver);
+                    createPages(userId,pageName, pageTitle, resourceResolver);
                 }
             }
             session.save();
@@ -73,7 +84,7 @@ public class CreateUserDetailPageServlet extends SlingAllMethodsServlet {
         }
     }
 
-    public void createPages(String pageName, String pageTitle, ResourceResolver resourceResolver) {
+    public void createPages(String userID, String pageName, String pageTitle, ResourceResolver resourceResolver) {
         try {
             PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
             prodPage = pageManager.create(path, pageName, PAGE_TEMPLATE, pageTitle, true);
@@ -83,6 +94,7 @@ public class CreateUserDetailPageServlet extends SlingAllMethodsServlet {
             if (prodPage.hasContent()) {jcrNode = prodPage.getContentResource().adaptTo(Node.class);}
             else {jcrNode = pageNode.addNode(AppConstants.JCR_CONTENT, AppConstants.CQ_PAGE_CONTENT);}
             jcrNode.setProperty(AppConstants.SLING_RESOURCE_TYPE, RENDERER);
+            jcrNode.setProperty("data-user-id", userID);
             Node root = session.getNode(prodPage.getPath().toString() + AppConstants.FORWARD_SLASH + AppConstants.JCR_CONTENT + AppConstants.FORWARD_SLASH + AppConstants.ROOT + AppConstants.FORWARD_SLASH + AppConstants.CONTAINER + AppConstants.FORWARD_SLASH + AppConstants.CONTAINER);
             Node day = root.addNode(AppConstants.BIOGRAPHY_COMPONENT, AppConstants.NT_UNSTRUCTURED);
             day.setProperty(AppConstants.SLING_RESOURCE_TYPE, AppConstants.BIOGRAPHY_COMPONENT_PATH);
@@ -97,14 +109,14 @@ public class CreateUserDetailPageServlet extends SlingAllMethodsServlet {
            resourceResolver = request.getResourceResolver();
            PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
            Page rootPage = pageManager.getPage(path);
-           Iterator<Page> rootPageIterator = rootPage.listChildren(new PageFilter(), true);;
+           Iterator<Page> rootPageIterator = rootPage.listChildren(new PageFilter(), true);
            while(rootPageIterator.hasNext())
            {
                Page childPage =  rootPageIterator.next();
                String childPagePath = childPage.getPath();
                if(childPage.getName().equalsIgnoreCase(pageName)){
                    pageExists = true;
-                   return pageExists;
+                   break;
                }
            }
        }catch (Exception e){

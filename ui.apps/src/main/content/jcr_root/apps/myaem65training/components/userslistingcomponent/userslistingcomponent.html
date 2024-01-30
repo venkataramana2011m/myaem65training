@@ -9,19 +9,18 @@
      </div>
     <div class="userlist-body" data-sly-use.object="com.myaem65training.core.cqcomponents.UserComponent"><br/>
         <div class="my-divcontainer">
-        <h2 class="filterheading">Executive Leadership Team</h2>
-           
-            <div class="flex-item"><a class="user-create-link" href="#"> Request a Speaker</a></div>
+        	<h2 class="filterheading">Executive Leadership Team</h2>           
+            <div class="flex-item"><button id="btnCreateUser" class="user-create-link"> Request a Speaker</button></div>
          </div><br/><br/>
         <section class="user-list">
             <sly data-sly-repeat.keyName="${object.userdet}">
                 <article class="user" data-sly-repeat="${keyName}">
                     <header class="user-header">
-                        <img src="${object.userdet[keyName][itemList.index]}" />
+                        <img src="${object.userdet[keyName][itemList.index] !='empty' ? object.userdet[keyName][itemList.index] : '/content/dam/myaem65training/93.png'}" />
                     </header>
-                    <div class="user-details">
+                    <div class="user-details">                    	
                         <div class="user-hrow-head"><span class="user-hrow-text"></span></div>
-                        <h2><a id="${item}" href="#" onclick="fnCreatePage(this.id);">${item}</a></h2>
+                        <h2><a class="myhref" data-user-id="${item}" id="user-${itemList.index}" href="#" onclick="fnOpenUserDetailedPage(this.id);">${item}<input type="hidden" id="user-id-${itemList.index}" value="${item}"/></a></h2>
                     </div>
                 </article>
             </sly>

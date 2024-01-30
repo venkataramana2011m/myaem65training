@@ -1,53 +1,48 @@
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html" data-sly-call="${clientlib.all @ categories='bookdetailmultifieldwithmap.clientlib'}"></sly>
-<div data-sly-use.model="com.ibm.commerce.core.models.MediaCarouselModel"></div>
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html" data-sly-call="${clientlib.all @ categories='ibm-commerce.mediacarousel'}"></sly>
+<sly data-sly-use.model="com.myaem65training.core.models.MediaCarouselModel"></sly>
 <sly data-sly-test="${wcmmode.edit || wcmmode.design}">
-  <h3>Please edit the Media Carousel Component ... will be visible in the publish mode only ....</h3>
+  <h4>Media Carousel</h4>
 </sly>
-<sly data-sly-test="${wcmmode.disabled}">
-  <sly data-sly-test="${properties.mediatype == 'image'}">
+<sly data-sly-test="${!wcmmode.edit}">
+  <sly data-sly-test="${model.mediatype == 'image'}">
     <div class="slideshow-container">
-      <div data-sly-list.item="${model.carouselWithMap}">
-        <div class="mySlides fade">
-          <div class="numbertext">${item.title} / ${model.carouselWithMap.size}</div>
-          <img class="myslides-img" src="${item.carouselMedia}" width="500" height="500">
-          <div class="text">${item.carouseldescription}</div>
+      <div data-sly-list.item="${model.mediaCarouselDetailsWithMap}">
+        <div class="carouselSlides fade">
+          <img class="carouselSlides-img" src="${item.linkType == 'internal' ? item.internalLink : item.externalLink}" width="500" height="500" alt="${item.title}">
+          <div class="text">${item.carouselDescription}</div>
         </div>
       </div>
       <a class="prev" onclick="plusSlides(-1)">❮</a>
       <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-    <div style="text-align:center" data-sly-list="${model.carouselWithMap}">
+    <div style="text-align:center" data-sly-list="${model.mediaCarouselDetailsWithMap}">
       <span class="dot" id="${itemList.count}" onclick='currentSlide(this.id)'></span>
     </div>
   </sly>
-  <sly data-sly-test="${properties.mediatype == 'video'}">
-<div class="slideshow-container">
-      <div data-sly-list.item="${model.carouselWithMap}">
-        <div class="mySlides fade">
-          <div class="numbertext">${item.title} / ${model.carouselWithMap.size}</div>
+  <sly data-sly-test="${model.mediatype == 'video'}">
+	<div class="slideshow-container">
+      <div data-sly-list.item="${model.mediaCarouselDetailsWithMap}">
+        <div class="carouselSlides fade">
+          <!--<div class="numbertext">${item.title} / ${model.mediaCarouselDetailsWithMap.size}</div>-->
 		  <sly data-sly-test="${item.linkType == 'internal'}">
-			<video width="500" height="500" class="myslides-img" controls autoplay muted loop>
-				<source src="${item.carouselMedia}" />
+			<video width="500" height="500" class="carouselSlides-img" controls autoplay muted loop>
+				<source src="${item.internalLink}" />
 			</video>
 		  </sly>
 	      <sly data-sly-test="${item.linkType == 'external'}">
-			<iframe width="100%" height="500" src="${item.carouselMedia}" frameborder="0" allowfullscreen></iframe>
-			<!--<video width="500" height="500" class="myslides-img" controls autoplay muted loop>
-				<source src="${item.carouselMedia}" />
+			<iframe width="100%" height="500" src="${item.externalLink}" frameborder="0" allowfullscreen title="${item.title}"></iframe>
+			<!--<video width="500" height="500" class="carouselSlides-img" controls autoplay muted loop>
+				<source src="${item.externalLink}" />
 			</video>-->
 		  </sly>
-
-          <div class="text">${item.carouseldescription}</div>
+          <div class="text">${item.carouselDescription}</div>
         </div>
       </div>
       <a class="prev" onclick="plusSlides(-1)">❮</a>
       <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-    <div style="text-align:center" data-sly-list="${model.carouselWithMap}">
+    <div style="text-align:center" data-sly-list="${model.mediaCarouselDetailsWithMap}">
       <span class="dot" id="${itemList.count}" onclick='currentSlide(this.id)'></span>
     </div>
-
   </sly>
 </sly>

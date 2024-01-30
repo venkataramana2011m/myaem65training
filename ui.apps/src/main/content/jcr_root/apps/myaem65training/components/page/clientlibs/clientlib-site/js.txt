@@ -1,0 +1,2 @@
+#base=js
+site-crud-cookie.js

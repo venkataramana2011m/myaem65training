@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>myaem65training.ui.apps.structure</name>
-	<comment></comment>
+	<comment>Empty package that defines the structure of the Adobe Experience Manager repository the Code packages in this project deploy into.
+        Any roots in the Code packages of this project should have their parent enumerated in the Filters list below. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -35,7 +36,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1703571618143</id>
+			<id>1705670997897</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

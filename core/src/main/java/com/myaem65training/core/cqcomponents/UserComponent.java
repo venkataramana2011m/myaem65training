@@ -40,6 +40,7 @@ public class UserComponent extends WCMUsePojo {
 
 			UserManager userManager = ((JackrabbitSession) session).getUserManager();
 			Iterator<Authorizable> userIterator = userManager.findAuthorizables("jcr:primaryType", "rep:User");
+			Iterator<Authorizable> systemUserIterator = userManager.findAuthorizables("jcr:primaryType", "rep:SystemUser");
 			Iterator<Authorizable> groupIterator = userManager.findAuthorizables("jcr:primaryType", "rep:Group");
 			users = new LinkedList<>();
 			usersProfileImg = new LinkedList<>();
@@ -51,7 +52,14 @@ public class UserComponent extends WCMUsePojo {
 					log.info("User found: {}", user.getID());
 					users.add(user.getID());
 					usersProfileImg.add(user.getPath()+"/profile.profile.image");
-
+				}
+			}
+			while (systemUserIterator.hasNext()) {
+				Authorizable systemUser = systemUserIterator.next();
+				if (!systemUser.isGroup()) {
+					log.info("User found: {}", systemUser.getID());
+					/*users.add(systemUser.getID());
+					usersProfileImg.add("empty");*/
 				}
 			}
 			userdet.put(users, usersProfileImg);

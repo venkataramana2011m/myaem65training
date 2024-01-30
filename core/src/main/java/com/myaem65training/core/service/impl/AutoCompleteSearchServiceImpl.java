@@ -4,6 +4,7 @@ import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.myaem65training.core.constants.AppConstants;
 import com.myaem65training.core.service.AutoCompleteSearchService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.JackrabbitSession;
@@ -40,6 +41,19 @@ public class AutoCompleteSearchServiceImpl implements AutoCompleteSearchService 
         autoCompleteSearchPredicate.put("p.offset", "0"); // same as query.setStart(0) below
         autoCompleteSearchPredicate.put("p.limit", "20"); // same as query.setHitsPerPage(20)
 
+        return autoCompleteSearchPredicate;
+    }
+
+    @Override
+    public Map<String, String> createFetchPageListPredicateMap(String path) {
+        Map<String, String> autoCompleteSearchPredicate = new HashMap<>();
+
+        /**
+         * Configuring the Map for the predicate
+         */
+        autoCompleteSearchPredicate.put(AppConstants.PREDICATE_PATH, path);
+        autoCompleteSearchPredicate.put(AppConstants.PROPERTY_1, AppConstants.JCR_PRIMARYTYPE);
+        autoCompleteSearchPredicate.put(AppConstants.PROPERTY_1_VALUE, AppConstants.CQ_PAGE);
         return autoCompleteSearchPredicate;
     }
 

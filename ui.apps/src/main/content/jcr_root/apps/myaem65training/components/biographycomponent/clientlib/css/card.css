@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Livvic:ital,wght@0,400;1,700&family=Noto+Serif:wght@300&family=Poppins:wght@300&display=swap');
+@import url('https://db.onlinewebfonts.com/c/71de32f4a17a9a4cd786b8b2be8f3855?family=Capitolium+News+W01+2+Regular');
+
+@font-face {
+    font-family: "Capitolium News W01 2 Regular";
+    src: url("https://db.onlinewebfonts.com/t/71de32f4a17a9a4cd786b8b2be8f3855.eot");
+    src: url("https://db.onlinewebfonts.com/t/71de32f4a17a9a4cd786b8b2be8f3855.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/71de32f4a17a9a4cd786b8b2be8f3855.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/71de32f4a17a9a4cd786b8b2be8f3855.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/71de32f4a17a9a4cd786b8b2be8f3855.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/71de32f4a17a9a4cd786b8b2be8f3855.svg#Capitolium News W01 2 Regular")format("svg");
+}
+
+.userDetailsMainContainer {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+.userDetailsTitle {
+    max-width: 20%;
+    margin: 0 auto;
+    align-items: center;
+    padding: 15px;
+    display: flex;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+/* Columns */
+.userDetailsAboutme {
+    width: 60%;
+    position: relative;
+    left: -125px;
+    justify-content: space-between;
+}
+
+.userDetailsPicture {
+    width: 40%;
+    margin-top: -20px;
+    filter: drop-shadow(5px 5px 5px #222);
+    object-fit: fill;
+}
+
+
+.userDetails-job-name {
+    font-family: "Capitolium News W01 2 Regular";
+    line-height: 64px;
+    font-size: 48px;
+    font-optical-sizing: none;
+}
+
+.userDetailsPicture img {
+    width: 354px;
+    height: 354px;
+    max-width: 354px;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: right;
+    clear: right;
+    margin: 10px 10px;
+    transition: .2s;
+    padding: 2px;
+}
+
+.userDetailsAboutme h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+.userDetailsAboutme p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+.userDetailsAboutme table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 280px;
+    border-collapse: collapse;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+.userDetailsAboutme td {
+
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+}
+
+.userDetailsAboutme td:first-child {
+    font-weight: bold;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+.userDetailsAboutme .iconname {
+    font-size: 15px;
+    margin-bottom: 5px;
+    font-family: "Capitolium News W01 2 Regular";
+}
+
+.userdet{
+    font-size: 15px;
+    font-family: "Capitolium News W01 2 Regular";
+}
+@media(max-width:991px){.userDetailsMainContainer{padding:56px;margin:0;margin-bottom:56px;width:100%}
+}
+@media(max-width:767px){.userDetailsMainContainer{padding-top:0}
+.userDetailsMainContainer>.row{flex-direction:column-reverse}
+}

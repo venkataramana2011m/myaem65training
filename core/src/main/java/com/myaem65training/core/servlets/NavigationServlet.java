@@ -44,9 +44,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     /**
      *
      */
-    private static final long serialVersionUID = 7310953259219639157L;
+        private static final long serialVersionUID = 7310953259219639157L;
 
-    private static final Logger log = LoggerFactory.getLogger(NavigationServlet.class);
+        private static final Logger log = LoggerFactory.getLogger(NavigationServlet.class);
 
     @Reference
     private QueryBuilder builder;

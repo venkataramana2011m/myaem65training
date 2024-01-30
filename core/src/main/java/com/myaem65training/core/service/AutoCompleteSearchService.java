@@ -8,5 +8,6 @@ import java.util.Map;
 public interface AutoCompleteSearchService {
 
     public Map<String, String> createAutoCompleteSearchPredicateMap(String queryString, String queryPagesLocation);
+    public Map<String, String> createFetchPageListPredicateMap(String path);
 
 }

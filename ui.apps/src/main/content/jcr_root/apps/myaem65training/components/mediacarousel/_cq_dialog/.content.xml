@@ -135,7 +135,7 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldLabel="External"
-                                                                    name="./externalLink"/>
+                                                                    name="./externallink"/>
                                                             </items>
                                                         </well>
                                                     </items>
@@ -145,6 +145,11 @@
                                     </mediacarouseldetailswithmap>
                                 </items>
                             </well>
+                            <mediacarouselid
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Media Carousel ID"
+                                name="./mediacarouselid"/>
                         </items>
                     </mediacarouselwithmultifield>
                 </items>

@@ -42,6 +42,29 @@ public final class AppConstants {
     public static final String LEADERSHIP_PAGE_PATH = "/content/myaem65training/us/en/leadership";
     public static final String PAGE_COMPONENT_PATH = "myaem65training/components/page";
     public static final String PAGE_TEMPLATE = "/conf/myaem65training/settings/wcm/templates/page-content";
-
-
+    public static final String JCR_PRIMARYTYPE = "jcr:primaryType";
+    public static final String CQ_PAGE="cq:Page";
+    public static final String PROPERTY_1 = "1_property";
+    public static final String PROPERTY_1_VALUE = "1_property.value";
+    public static final String PREDICATE_PATH = "path";
+    public static final String PAGE_TITLE = "pageTitle";
+    public static final String PAGE_NAME = "pageName";
+    public static final String PAGE_PATH = "pagePath";
+    public static final String JSON_PAGE_LIST_KEY = "pageList";
+    public static final String RESPONSE_CONTENT_TYPE = "application/json";
+    public static final String RESPONSE_ENCODING_TYPE = "UTF-8";
+    public static final String PROCESS_LABEL = "process.label";
+    public static final String CHOOSER_LABEL = "chooser.label";
+    public static final String CHILD_PAGE_COUNT = "childPageCount";
+    public static final String ADMINISTRATORS = "administrators";
+    public static final String CONTENT_AUTHORS = "content-authors";
+    public static final String DATASOURCE = "datasource";
+    public static final String DROPDOWN_SELECTOR = "dropdownSelector";
+    public static final String COUNTRY_LIST = "countryList";
+    public static final String COUNTRY_LIST_PATH = "/content/dam/aemtutorials/country.json";
+    public static final String COLOR_LIST = "colorList";
+    public static final String COLOR_LIST_PATH = "/content/dam/aemtutorials/color.json";
+    public static final String FONT_LIST = "fontList";
+    public static final String FONT_LIST_PATH = "/content/dam/aemtutorials/font.json";
+    public static final String PAGE_REPLICATION_TOPIC = "aemtutorials/replication/job";
 }
