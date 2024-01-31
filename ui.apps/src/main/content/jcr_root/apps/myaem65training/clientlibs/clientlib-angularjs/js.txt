@@ -1,0 +1,6 @@
+#base=js
+angular.min.js
+angular-material.min.js
+angular-aria.min.js
+angular-animate.min.js
+version-1.8.0/angular.min.js

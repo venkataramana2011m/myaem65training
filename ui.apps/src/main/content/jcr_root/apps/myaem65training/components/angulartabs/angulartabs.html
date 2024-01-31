@@ -1,0 +1,48 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly data-sly-call="${clientlib.all @ categories='angulartabs.clientlib'}"></sly>
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the AngularJs Tabs Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled}">  
+    <section ng-app="application" ng-controller="applicationCtrl" ng-init="onInit();" class="ng-cloak" style="overflow: hidden;">
+        <!-- Header -->
+        <div layout="row" md-whiteframe="1" layout-align="start center">
+            <!-- Title -->
+            <div layout-padding>
+                <span class="md-display-1" style="color: #1b5e20;">User - list </span>
+            </div>
+            <!-- Divider -->
+            <div flex></div>
+            <!-- Grid-list toggle button -->
+            <div layout="row" layout-padding class="grid-list-toggle">
+                <md-button class="grid-list-button" ng-click="toggleGridList('listView')" aria-label="List" ng-class="value == 'listView' ? 'selected' : ''">
+                    <div style="height: 30px">
+                        <img src="/content/dam/myaem65training/list-view.png" width="37px">
+                    </div>
+                </md-button>
+                <md-button class="grid-list-button" ng-click="toggleGridList('gridView')" aria-label="Grid" ng-class="value == 'gridView' ? 'selected' : ''">
+                    <div style="height: 30px">
+                        <img src="/content/dam/myaem65training/grid-view.png" width="37px">
+                    </div>
+                </md-button>
+            </div>
+        </div>        
+        <div data-sly-use.object="com.myaem65training.core.cqcomponents.UserComponent" flex="100" layout="column" md-whiteframe="1">            
+            <section layout="{{layout}}" layout-padding style="overflow-y: auto;" ng-class="value == 'gridView' ? 'layout-wrap' : 'layout-nowrap'" >
+                <sly data-sly-repeat.keyName="${object.userdet}">
+                    <article data-sly-repeat="${keyName}" layout="row" layout-padding layout-align="start center" class="grid-list-toggle" >                   
+                            <header>
+                                <img src="${object.userdet[keyName][itemList.index] !='empty' ? object.userdet[keyName][itemList.index] : '/content/dam/myaem65training/user.png'}" width="80px" >
+                            </header>
+                            <div layout="column">
+                                <span>Title {{$index}} - ${item}</span>
+                                <span><a data-user-id="${item}" id="user-${itemList.index}" href="#" onclick="fnOpenUserDetailedPage(this.id);">${item}<input type="hidden" id="user-id-${itemList.index}" value="${item}"/></a></span>
+                                <span>Description</span>
+                                <span>Another line</span>
+                            </div>                        
+                    </article>
+                </sly>
+            </section>
+    </div>
+    </section>
+</sly>

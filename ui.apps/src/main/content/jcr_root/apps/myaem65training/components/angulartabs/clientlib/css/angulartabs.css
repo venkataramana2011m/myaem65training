@@ -1,0 +1,17 @@
+.grid-list-toggle {
+  padding: 0 !important;
+  margin: 8px;
+  border-radius: 2px;
+  border: 1px solid #c8e6c9;
+}
+
+.grid-list-button {
+  margin: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border-radius: 0 !important;
+}
+
+.grid-list-button.selected {
+  background-color: #c8e6c9;
+}
