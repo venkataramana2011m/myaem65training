@@ -1,0 +1,5 @@
+#base=css
+higgidy_carousel.scss
+dist/higgidy_carousel.css
+dist/higgidy_carousel.css.map
+dist/higgidy_carousel.min.css

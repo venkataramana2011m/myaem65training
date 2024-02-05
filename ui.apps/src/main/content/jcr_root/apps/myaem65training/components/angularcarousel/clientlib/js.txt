@@ -1,0 +1,5 @@
+#base=js
+myCustomlogic.js
+higgidy_carousel.js
+dist/higgidy_carousel.js
+dist/higgidy_carousel.min.js

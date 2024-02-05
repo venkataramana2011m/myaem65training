@@ -1,0 +1,28 @@
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the AngularJs Tabs Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || ''}">
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly data-sly-call="${clientlib.all @ categories='angularcarousel.clientlib'}"></sly>
+    <section class="carouselbody" ng-app="angularcarouselapp" ng-controller="angularcarouselappController">
+        <div higgidy-carousel='images' timeout="10000">
+            <ul higgidy-carousel-images>
+                <li ng-repeat="image in images">
+                    <a href="{{image.link}}">
+                        <img ng-src="{{image.src}}" alt="{{img.alt}}" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="links">
+                <ul>
+                    <li ng-repeat="image in images">
+                        <a href="" ng-click="show($index)" ng-class="{selected: carousel.current == $index}">
+                            {{$index}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</sly>

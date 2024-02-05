@@ -1,0 +1,34 @@
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the AngularJs Tabs Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || ''}">
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly data-sly-call="${clientlib.all @ categories='angularsearch.clientlib'}"></sly>
+    <!--<div >
+    	 <div class="animated zoomInRight">
+            <div class="input-group search-bar">
+              <input type="text" ng-model="search" ng-model-options="{ debounce: 800 }" onclick="select()" class="form-control" placeholder="Enter full movie name" autofocus />
+              <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
+            </div>
+
+            <div id="main-info" ng-include="'/apps/myaem65training/components/angularsearch/partials/main-info.html'" class="col-md-8"></div>
+
+            <div id="related-results" ng-include="'/apps/myaem65training/components/angularsearch/partials/related-results.html'" class="col-md-4 animated bounce related-results"></div>
+          </div>
+    </div>-->
+    <div class="container-fluid outerdiv" ng-app="myApp" ng-controller="MovieController">
+      
+      <noscript>
+        <div class="nojs">Javascript is either disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
+      </noscript>
+
+      <div class="animated zoomInRight">
+        <div class="input-group search-bar">
+          <input type="text" ng-model="search" ng-model-options="{ debounce: 800 }" onclick="select()" class="form-control" placeholder="Enter full movie name" autofocus />
+          <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
+        </div>
+
+      </div>
+    </div>
+
+</sly>
