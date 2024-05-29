@@ -1,0 +1,10 @@
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Recipe Category Listing Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || ''}">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+    <sly data-sly-call="${clientlib.all @ categories='recipecategory.clientlib'}"></sly>
+	<div id="myRecipeCategoryResponse"> </div>
+    <div id="myRecipeListByCategoryResponse">    </div>
+    <div id="myRecipeDetailResponse">    </div>
+</sly>

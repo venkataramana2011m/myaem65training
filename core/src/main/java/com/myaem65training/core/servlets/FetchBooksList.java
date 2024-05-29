@@ -39,14 +39,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.*;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
+/*import java.net.http.HttpClient;
+import java.net.http.HttpRequest;*/
 import java.util.HashSet;
 import java.util.Iterator;
 
 /**
  * Fetiching the List of the Books from the NYtimes API
  */
+@SuppressWarnings("unused")
 @Component(service=Servlet.class,
         property={
                 Constants.SERVICE_DESCRIPTION + "=Book Listing servlet",
@@ -56,7 +57,7 @@ import java.util.Iterator;
 public class FetchBooksList extends SlingAllMethodsServlet {
     private static final long serialVersionUID = -1464983465750830035L;
     private static final Logger log = LoggerFactory.getLogger(FetchBooksList.class);
-    private static final AppConstants appConstants = new AppConstants();
+    private static final AppConstants appConstants = new AppConstants();  
     private HashSet<String> uniqueBookList;
 
     @Override

@@ -12,9 +12,12 @@ import com.myaem65training.core.servlets.BookDetailServlet;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpRequest;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
@@ -22,7 +25,9 @@ import org.osgi.service.component.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -75,6 +80,39 @@ public class SearchHelperServiceImpl implements SearchHelperService {
                 log.error("IllegalArgumentException | UnsupportedOperationException :: ", ex);
                 return null;
             }
+        }
+        return null;
+    }
+
+    @Override
+    public String makeRecipeCategoryListApiCall() throws IOException {
+        StringBuffer jsonResponseData = new StringBuffer();
+        BufferedReader readLine = null;
+        BufferedReader bufferedReader = null;
+        CloseableHttpClient httpClient =null;
+        try{
+            int timeout = 5;
+            RequestConfig config = RequestConfig.custom().setConnectTimeout(10000).setConnectionRequestTimeout(timeout * 1000).setSocketTimeout(10000).build();
+            httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+            HttpGet httpget = new HttpGet(AppConstants.RECIPIE_API_ENDPOINT.concat(AppConstants.RECIPIE_API_LIST_ALL_MEAL_CATEGORIES));
+            CloseableHttpResponse closeableHttpResponse = httpClient.execute(httpget);
+            bufferedReader = new BufferedReader(new InputStreamReader(closeableHttpResponse.getEntity().getContent()));
+
+            StringBuilder result = new StringBuilder();
+            String line ;
+            while ((line = bufferedReader.readLine()) != null) {
+                result.append(line);
+            }
+            bufferedReader.close();
+            com.google.gson.JsonParser jsonParser = new JsonParser();
+            com.google.gson.JsonObject jsonObject = jsonParser.parse(result.toString()).getAsJsonObject();
+            return jsonObject.toString();
+        } catch (NullPointerException e){
+            log.error(e.getMessage());
+        } catch (Exception e){
+            log.error(e.getMessage());
+        } finally{
+            httpClient.close();
         }
         return null;
     }

@@ -67,4 +67,19 @@ public final class AppConstants {
     public static final String FONT_LIST = "fontList";
     public static final String FONT_LIST_PATH = "/content/dam/aemtutorials/font.json";
     public static final String PAGE_REPLICATION_TOPIC = "aemtutorials/replication/job";
+
+    public static final String RECIPIE_API_ENDPOINT = "https://www.themealdb.com/api/json/v1/1/";
+    public static final String RECIPIE_API_SEARCH_BY_MEAL_NAME = "search.php?s=";
+    public static final String RECIPIE_API_LIST_ALL_MEALS_BY_FIRST_LETTER = "search.php?f=";
+    public static final String RECIPIE_API_LOOKUP_MEAL_BY_ID="lookup.php?i=";
+    public static final String RECIPIE_API_RANDOM_RECIPIE="random.php";
+    public static final String RECIPIE_API_LIST_ALL_MEAL_CATEGORIES="categories.php";
+    public static final String RECIPIE_API_LIST_BY_CATEGORIES="list.php?c=list";
+    public static final String RECIPIE_API_LIST_BY_AREAS="list.php?a=list";
+    public static final String RECIPIE_API_LIST_BY_INGREDIENTS="list.php?i=list";
+    public static final String RECIPIE_API_FILTER_BY_MAIN_INGRDIENT="filter.php?i=chicken_breast";
+    public static final String RECIPIE_API_FILTER_BY_CATEGORY="filter.php?c=";
+    public static final String RECIPIE_API_FILTER_AREA="filter.php?a=Canadian";
+    public static final String RECIPIE_API_INGREDIENT_IMAGE="https://www.themealdb.com/images/ingredients/";
+
 }

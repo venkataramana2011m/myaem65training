@@ -1,0 +1,2 @@
+#base=js
+loadRecipeCategory.js

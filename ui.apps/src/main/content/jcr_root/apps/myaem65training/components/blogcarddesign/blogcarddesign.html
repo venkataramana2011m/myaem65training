@@ -1,0 +1,9 @@
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">
+    <h1>Please edit the Blog Post Card Component ...</h1>
+</sly>
+<sly data-sly-test="${wcmmode.disabled || ''}">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"></sly>
+    <sly data-sly-call="${clientlib.all @ categories='blogcarddesign.clientlib'}"></sly>
+    <input type="hidden" id="trgtmodeljson" value="${resource.getPath}.model.tidy.json" />   
+	<div id="myResponse" > </div>
+</sly>

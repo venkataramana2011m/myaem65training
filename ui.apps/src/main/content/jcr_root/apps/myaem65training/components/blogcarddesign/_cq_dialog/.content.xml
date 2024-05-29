@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Properties"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <blogpostcardmultifield
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Blog Post Card Design With Multifield"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Blog Post Card Design Listing Title"
+                                name="./blogPostCardDesignTitle"/>
+                            <well
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/well"
+                                fieldLabel="Blog Post Card Design Details">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <blogpostcardwithmap
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldDescription="Blog Post Cards Details"
+                                        fieldLabel="Blog Post Cards Details"
+                                        required="{Boolean}false">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            emptyText="Blog Post Cards Details"
+                                            name="./blogPostCardDetailsWithMap">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <blogpostcardcolor
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Blog Post Card Color"
+                                                    name="./blogPostCardColor">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <select
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Please Select Blog Post Card Color"
+                                                            value="mediatype"/>
+                                                        <blue
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Blue"
+                                                            value="projcard-blue"/>
+                                                        <red
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Red"
+                                                            value="projcard-red"/>
+                                                        <green
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Green"
+                                                            value="projcard-green"/>
+                                                        <customcolor
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Custom Color"
+                                                            value="projcard-customcolor"/>
+                                                    </items>
+                                                </blogpostcardcolor>
+                                                <blogpostcardtitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Card Title"
+                                                    name="./blogPostCardTitle"/>
+                                                <blogpostcardsubtitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Card Sub Title"
+                                                    name="./blogPostCardSubTitle"/>
+                                                <blogpostcardimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="The root page from which to search in. Can be a blueprint master, language master or regular page."
+                                                    fieldLabel="Card Image"
+                                                    name="./blogPostCardImage"
+                                                    rootPath="/content/dam/myaem65training"/>
+                                                <blogpostcardimageposition
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Blog Post Card Image Position"
+                                                    name="./blogPostCardImagePosition">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <select
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Please Select Blog Post Card Image Position"
+                                                            value="imageposition"/>
+                                                        <left
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Left"
+                                                            value="left"/>
+                                                        <right
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Right"
+                                                            value="right"/>
+                                                    </items>
+                                                </blogpostcardimageposition>
+                                                <blogpostcarddescription
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                    fieldLabel="Card Description"
+                                                    name="./blogPostCardDescription"
+                                                    removeSingleParagraphContainer="{Boolean}true"
+                                                    useFixedInlineToolbar="{Boolean}true">
+                                                    <rtePlugins jcr:primaryType="nt:unstructured">
+                                                        <format
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="bold,italic"/>
+                                                        <justify
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="-"/>
+                                                        <links
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="modifylink,unlink"/>
+                                                        <lists
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*"/>
+                                                        <misctools jcr:primaryType="nt:unstructured">
+                                                            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                                <chars jcr:primaryType="nt:unstructured">
+                                                                    <default_copyright
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;copy;"
+                                                                        name="copyright"/>
+                                                                    <default_euro
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;euro;"
+                                                                        name="euro"/>
+                                                                    <default_registered
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;reg;"
+                                                                        name="registered"/>
+                                                                    <default_trademark
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;trade;"
+                                                                        name="trademark"/>
+                                                                </chars>
+                                                            </specialCharsConfig>
+                                                        </misctools>
+                                                        <paraformat
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*">
+                                                            <formats jcr:primaryType="nt:unstructured">
+                                                                <default_p
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Paragraph"
+                                                                    tag="p"/>
+                                                                <default_h1
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Heading 1"
+                                                                    tag="h1"/>
+                                                                <default_h2
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Heading 2"
+                                                                    tag="h2"/>
+                                                                <default_h3
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Heading 3"
+                                                                    tag="h3"/>
+                                                                <default_h4
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Heading 4"
+                                                                    tag="h4"/>
+                                                                <default_h5
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Heading 5"
+                                                                    tag="h5"/>
+                                                                <default_h6
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Heading 6"
+                                                                    tag="h6"/>
+                                                                <default_blockquote
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Quote"
+                                                                    tag="blockquote"/>
+                                                                <default_pre
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="Preformatted"
+                                                                    tag="pre"/>
+                                                                <notextformat
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    description="No - Text Format"
+                                                                    tag="notextformat"/>
+                                                            </formats>
+                                                        </paraformat>
+                                                        <table
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="-">
+                                                            <hiddenHeaderConfig
+                                                                jcr:primaryType="nt:unstructured"
+                                                                hiddenHeaderClassName="cq-wcm-foundation-aria-visuallyhidden"
+                                                                hiddenHeaderEditingCSS="cq-RichText-hiddenHeader--editing"/>
+                                                        </table>
+                                                        <tracklinks
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*"/>
+                                                    </rtePlugins>
+                                                    <uiSettings jcr:primaryType="nt:unstructured">
+                                                        <cui jcr:primaryType="nt:unstructured">
+                                                            <inline
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[format#bold,format#italic,format#underline,#justify,#lists,links#modifylink,links#unlink,#paraformat]">
+                                                                <popovers jcr:primaryType="nt:unstructured">
+                                                                    <justify
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+                                                                        ref="justify"/>
+                                                                    <lists
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                                                        ref="lists"/>
+                                                                    <paraformat
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        items="paraformat:getFormats:paraformat-pulldown"
+                                                                        ref="paraformat"/>
+                                                                </popovers>
+                                                            </inline>
+                                                            <dialogFullScreen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[format#bold,format#italic,format#underline,justify#justifyleft,justify#justifycenter,justify#justifyright,lists#unordered,lists#ordered,lists#outdent,lists#indent,links#modifylink,links#unlink,table#createoredit,#paraformat,image#imageProps]">
+                                                                <popovers jcr:primaryType="nt:unstructured">
+                                                                    <paraformat
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        items="paraformat:getFormats:paraformat-pulldown"
+                                                                        ref="paraformat"/>
+                                                                </popovers>
+                                                            </dialogFullScreen>
+                                                            <tableEditOptions
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[table#insertcolumn-before,table#insertcolumn-after,table#removecolumn,-,table#insertrow-before,table#insertrow-after,table#removerow,-,table#mergecells-right,table#mergecells-down,table#mergecells,table#splitcell-horizontal,table#splitcell-vertical,-,table#selectrow,table#selectcolumn,-,table#ensureparagraph,-,table#modifytableandcell,table#removetable,-,undo#undo,undo#redo,-,table#exitTableEditing,-]"/>
+                                                        </cui>
+                                                    </uiSettings>
+                                                </blogpostcarddescription>
+                                                <blogpostcardcategory
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Card Category"
+                                                    name="./blogPostCardCategory"/>
+                                            </items>
+                                        </field>
+                                    </blogpostcardwithmap>
+                                </items>
+                            </well>
+                        </items>
+                    </blogpostcardmultifield>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
