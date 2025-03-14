@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.json.JSONArray;
@@ -61,7 +62,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
     private JSONArray NavigationJsonArray;
 
-    private PageManager pageManager;
+        private PageManager pageManager;
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
@@ -84,11 +85,14 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             for (Hit hit : searchResult.getHits()) {
                 //Page currentPage = pageManager.getPage(hit.getPath());
                 Page currentPage = pageManager.getPage(hit.getPath());
-                JSONObject pageList = new JSONObject();
-                pageList.put("pageTitle", currentPage.getTitle().toString());
-                pageList.put("pagePath", currentPage.getPath().toString());
-                NavigationJsonArray.put(pageList);
-                uniquePageList.add(currentPage.getParent().getPath().toString());
+                ValueMap pageProperties = currentPage.getProperties();
+                if(pageProperties.get("includeNavigation").equals("includeNavigation")){
+                    JSONObject pageList = new JSONObject();
+                    pageList.put("pageTitle", currentPage.getTitle().toString());
+                    pageList.put("pagePath", currentPage.getPath().toString());
+                    NavigationJsonArray.put(pageList);
+                    uniquePageList.add(currentPage.getParent().getPath().toString());
+                }
             }
             /*Iterator<String> itr = uniquePageList.iterator();
             while (itr.hasNext()) {

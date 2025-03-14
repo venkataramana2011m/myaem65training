@@ -63,10 +63,10 @@ public class FetchUserListingServlet extends SlingAllMethodsServlet {
                 log.info("I am inside the While Condition for checking that UserIterator has Next Item ....... ");
                 Authorizable user = userIterator.next();
                 if (!user.isGroup()) {
-                    log.info("userId", user.getID());
-                    log.info("userPath", user.getPath());
-                    log.info("userEmail", user.getProperty("./profile/email")[0].getString());
-                    log.info("userPic",user.getPath()+"/profile.profile.image");
+                    log.info("userId"+ user.getID());
+                    log.info("userPath"+ user.getPath());
+                    log.info("userEmail"+ user.getProperty("./profile/email")[0].getString());
+                    log.info("userPic"+user.getPath()+"/profile.profile.image");
                     JSONObject userList = new JSONObject();
                     userList.put("userId", user.getID());
                     userList.put("userPath", user.getPath());
@@ -76,7 +76,7 @@ public class FetchUserListingServlet extends SlingAllMethodsServlet {
                 }
             }
             userJsonObject.put("userList", userJsonArray);
-            //response.getWriter().write(userJsonObject.toString());
+            response.getWriter().write(userJsonObject.toString());
             response.getWriter().write("Hi");
         } catch (Exception e){
             e.printStackTrace();
